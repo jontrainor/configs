@@ -1,0 +1,178 @@
+" --- enable filetype plugins
+filetype plugin on
+filetype indent on
+
+" --- set to auto read when a file is changed outside of vim
+set autoread
+
+" --- set leader to ','
+let mapleader = ","
+
+" --- fast saving
+nmap <leader>w :w!<cr>
+
+" --- not completely VI compatible
+set nocompatible
+
+" --- configure backspace
+set backspace=indent,eol,start
+
+" --- right and left wrap lines
+set whichwrap+=<,>,h,l,[,]
+
+" --- uses indent of previous line for new line
+set autoindent
+
+" --- python indentation
+set modeline
+
+" --- number of lines of history will be remembered
+set history=500
+
+" --- display current cursor position in lower right corner
+set ruler
+
+" --- display incomplete commands to the left of the ruler
+set showcmd
+
+" --- search settings 
+set incsearch " matches while typing
+set ignorecase " case insenstive searching
+set smartcase " if a search has an uppercase letter it is case senstive
+set hlsearch " highlight search
+
+" --- turn on syntax highlighting
+syntax on
+
+" --- height of command bar
+set cmdheight=2
+
+" --- enable regular expressions
+set magic
+
+" --- tabs
+set tabstop=2 " 1 tab = 2 spaces
+set shiftwidth=2 
+set smartindent 
+set smarttab
+set report=5 " set largest size of changes reported on status line
+
+" --- buffer is hidden when abandoned
+set hid
+
+" --- bash style tab completion for filenames
+set wildmenu
+set wildmode=list:longest
+
+" --- minimum of 5 lines between cursor and top/bottom of screen
+set scrolloff=5
+
+" --- turn off backup and swap files
+set nobackup
+set nowb
+set noswapfile
+
+" --- decrease message size
+set shortmess=atI
+
+" --- grep within vim uses ack
+set grepprg=ack
+
+" --- show line numbers
+set number
+
+" --- ignore whitespace in vimdiff
+set diffopt+=iwhite
+
+" --- highlight current line
+set cursorline
+
+" --- enable mouse to move cursor
+set mouse=a
+
+" --- show status line and command line
+set ls=2
+
+set makeprg=ant
+set efm=%A\ %#[scalac]\ %f:%l:\ %m,%-Z\ %#[scalac]\ %p^,%-C%.%#,%f:%l:%c:%m
+
+let g:session_dir = "~/.vim/sessions/"
+let g:findprg = "ack --sort-files -g"
+
+" --- remappings
+map K :<BS>
+map <Leader>k <C-W>k
+map <Leader>j <C-W>j
+map <Leader>h <C-W>h
+map <Leader>l <C-W>l
+map <Leader>n :new<CR>
+map <Leader>v :vnew<CR>
+map <Leader>< :cold<CR>
+map <Leader>> :cnew<CR>
+
+map <Leader>g :diffget
+map <Leader>G :diffget<CR>
+map <Leader>p :diffput
+map <Leader>P :diffput<CR>
+map <Leader>u :diffupdate<CR>
+
+map <F7> :vertical wincmd f<CR>
+
+map <Leader>; :cex system('node dev/semis.js resources')<CR>:cope<CR>
+
+inoremap <C-@> <C-N>
+nnoremap ' `
+nnoremap ` '
+nnoremap U 
+
+nnoremap <leader><space> :noh<cr>
+
+" Shift buffer viewport by 3 lines instead of 1
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" Extend ragtag for tags with no body (ie, 'Foo' -> '<Foo/>')
+inoremap <silent> <buffer> <C-X>. <Esc>ciw<Lt><C-R>"/><Esc>a
+
+com! Cfg :source ~/.vimrc
+com! -nargs=0 EditRC :topleft vs ~/.vim/vimrc
+
+cabbrev rc EditRC
+" cabbrev ss CreateSession
+" cabbrev xs DeleteSession
+
+" Coldfusion-specific options
+au FileType cf setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
+au FileType javascript setlocal noexpandtab
+
+" Python-specific options
+au FileType python setlocal shiftwidth=4 tabstop=4 expandtab
+
+" --- ctrlp settings
+let g:ctrlp_cmd = "CtrlPBuffer"
+" Custom ignores
+let g:ctrlp_custom_ignore = {
+\     'dir': '\v[\/]\.(git|hg)$',
+\     'file': '\v\.(pyc|o|hi)$'
+\  }
+" Caching
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_cache_dir = $XDG_CACHE_HOME.'/vim/ctrlp/'
+let g:ctrlp_max_depth = 10
+" Keymap
+let g:ctrlp_prompt_mappings = {
+\     'AcceptSelection("v")': ['<C-Enter>']
+\  }
+" MRU
+let g:ctrlp_mruf_relative = 1
+let g:ctrlp_mruf_max = 50
+" Search Behavior
+let g:ctrlp_lazy_update = 500 " ms
+let g:ctrlp_working_path_mode = 'ra'
+
+" --- colorscheme
+set t_Co=256
+let g:solarized_termcolors=256
+set background=dark
+colorscheme solarized
