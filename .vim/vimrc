@@ -78,6 +78,9 @@ set shortmess=atI
 " --- grep within vim uses ack
 set grepprg=ack
 
+" --- find within vim uses ack
+let g:findprg = "ack --sort-files -g"
+
 " --- show line numbers
 set number
 
@@ -93,11 +96,8 @@ set mouse=a
 " --- show status line and command line
 set ls=2
 
-set makeprg=ant
-set efm=%A\ %#[scalac]\ %f:%l:\ %m,%-Z\ %#[scalac]\ %p^,%-C%.%#,%f:%l:%c:%m
-
+" --- set session directory
 let g:session_dir = "~/.vim/sessions/"
-let g:findprg = "ack --sort-files -g"
 
 " --- remappings
 map K :<BS>
