@@ -101,7 +101,7 @@ let g:session_dir = "~/.vim/sessions/"
 
 " --- use undo file
 set undofile
-set undodir=$XDG_CACHE_HOME/vim,.,/tmp
+set undodir = "~/.vim/undodir/"
 
 " --- remappings
 map K :<BS>
