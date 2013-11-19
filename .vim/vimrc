@@ -129,7 +129,12 @@ nnoremap ' `
 nnoremap ` '
 nnoremap U 
 
+" --- clear highlights
 nnoremap <leader><space> :noh<cr>
+
+" --- insert a line without entering insert mode
+nnoremap <C-J> o<Esc>
+nnoremap <C-K> O<Esc>
 
 " Shift buffer viewport by 3 lines instead of 1
 nnoremap <C-e> 3<C-e>
