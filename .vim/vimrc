@@ -136,6 +136,9 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <C-J> o<Esc>
 nnoremap <C-K> O<Esc>
 
+" --- yank selected text into 'black hole register' and paste
+vmap r "_dP
+
 " Shift buffer viewport by 3 lines instead of 1
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
