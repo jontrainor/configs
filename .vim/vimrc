@@ -8,6 +8,9 @@ set autoread
 " --- set leader to ','
 let mapleader = ","
 
+" --- quick escape
+inoremap jj <Esc>
+
 " --- fast saving
 nmap <leader>w :w!<cr>
 
