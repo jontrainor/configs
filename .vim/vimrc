@@ -8,8 +8,14 @@ set autoread
 " --- set leader to ','
 let mapleader = ","
 
+" --- enable copying from vim to clipboard
+set clipboard=unnamedplus
+
 " --- quick escape
 inoremap jj <Esc>
+
+" --- enter visual mode
+nmap <Leader><Leader> V
 
 " --- fast saving
 nmap <leader>w :w!<cr>
@@ -142,6 +148,14 @@ nnoremap <C-K> O<Esc>
 " --- yank selected text into 'black hole register' and paste
 vmap r "_dP
 
+" --- always copy/paste to system clipboard
+vmap y "+y
+vmap d "+d
+nmap p "+p
+nmap P "+P
+vmap p "+p
+vmap P "+P
+
 " Shift buffer viewport by 3 lines instead of 1
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -179,6 +193,7 @@ let g:ctrlp_max_depth = 10
 let g:ctrlp_prompt_mappings = {
 \     'AcceptSelection("v")': ['<C-Enter>']
 \  }
+nnoremap <Leader>o :CtrlP<CR>
 " MRU
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_max = 50
@@ -191,3 +206,10 @@ set t_Co=256
 let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
+
+" --- ack.vim settings
+cabbrev ack Ack
+
+" --- vim-expand-region settings
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)

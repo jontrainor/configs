@@ -1,0 +1,23 @@
+E, [2014-01-03T18:22:36.699014 #10921] ERROR -- Kitchen: ------Exception-------
+E, [2014-01-03T18:22:36.699087 #10921] ERROR -- Kitchen: Class: Kitchen::UserError
+E, [2014-01-03T18:22:36.699111 #10921] ERROR -- Kitchen: Message: Kitchen YAML file /home/ONPEAK/jtrainor/projects/configs/.kitchen.yml does not exist.
+E, [2014-01-03T18:22:36.699133 #10921] ERROR -- Kitchen: ------Backtrace-------
+E, [2014-01-03T18:22:36.699155 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/loader/yaml.rb:59:in `read'
+E, [2014-01-03T18:22:36.699177 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/config.rb:78:in `data'
+E, [2014-01-03T18:22:36.699199 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/config.rb:66:in `suites'
+E, [2014-01-03T18:22:36.699220 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/config.rb:90:in `filter_instances'
+E, [2014-01-03T18:22:36.699241 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/config.rb:72:in `build_instances'
+E, [2014-01-03T18:22:36.699299 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/config.rb:52:in `instances'
+E, [2014-01-03T18:22:36.699361 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:342:in `get_filtered_instances'
+E, [2014-01-03T18:22:36.699416 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:157:in `login'
+E, [2014-01-03T18:22:36.699472 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/thor-0.18.1/lib/thor/command.rb:27:in `run'
+E, [2014-01-03T18:22:36.699526 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/thor-0.18.1/lib/thor/invocation.rb:120:in `invoke_command'
+E, [2014-01-03T18:22:36.699581 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/cli.rb:288:in `invoke_task'
+E, [2014-01-03T18:22:36.699636 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/thor-0.18.1/lib/thor.rb:363:in `dispatch'
+E, [2014-01-03T18:22:36.699691 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/thor-0.18.1/lib/thor/base.rb:439:in `start'
+E, [2014-01-03T18:22:36.699746 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/bin/kitchen:13:in `block in <top (required)>'
+E, [2014-01-03T18:22:36.699800 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/lib/kitchen/errors.rb:81:in `with_friendly_errors'
+E, [2014-01-03T18:22:36.699854 #10921] ERROR -- Kitchen: /var/lib/gems/1.9.1/gems/test-kitchen-1.1.1/bin/kitchen:13:in `<top (required)>'
+E, [2014-01-03T18:22:36.699908 #10921] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `load'
+E, [2014-01-03T18:22:36.699962 #10921] ERROR -- Kitchen: /usr/local/bin/kitchen:23:in `<main>'
+E, [2014-01-03T18:22:36.700033 #10921] ERROR -- Kitchen: ----------------------
