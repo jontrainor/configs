@@ -2,6 +2,7 @@
 
 #initialize vim plugin submodules
 git submodule init
+git submodule update
 
 #copy configs to home directory
 cp -rf ./.vimrc ~/
