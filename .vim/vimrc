@@ -148,14 +148,6 @@ nnoremap <C-K> O<Esc>
 " --- yank selected text into 'black hole register' and paste
 vmap r "_dP
 
-" --- always copy/paste to system clipboard
-vmap y "+y
-vmap d "+d
-nmap p "+p
-nmap P "+P
-vmap p "+p
-vmap P "+P
-
 " Shift buffer viewport by 3 lines instead of 1
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
