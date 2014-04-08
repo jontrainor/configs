@@ -138,6 +138,12 @@ nnoremap ' `
 nnoremap ` '
 nnoremap U 
 
+" javascript console log macro
+nnoremap <leader>cl oconsole.log();<esc>hi
+
+" coldfusion dump macro
+nnoremap <leader>cd o<cfdump abort="true" var="##"><esc>hhi
+
 " --- clear highlights
 nnoremap <leader><space> :noh<cr>
 
