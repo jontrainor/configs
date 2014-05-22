@@ -109,8 +109,10 @@ set ls=2
 let g:session_dir = "~/.vim/sessions/"
 
 " --- use undo file
+set undodir=~/.vim/undodir
 set undofile
-set undodir = "~/.vim/undodir/"
+set undolevels=1000
+set undoreload=10000
 
 " --- remappings
 map K :<BS>
