@@ -125,6 +125,9 @@ map <Leader>v :vnew<CR>
 map <Leader>< :cold<CR>
 map <Leader>> :cnew<CR>
 
+" close buffer
+map <Leader>x :bd<CR>
+
 map <Leader>g :diffget
 map <Leader>G :diffget<CR>
 map <Leader>p :diffput
@@ -213,16 +216,20 @@ colorscheme solarized
 
 " --- ack.vim settings
 cabbrev ack Ack
-nnoremap <leader>s :Ack
-vnoremap <leader>s y:Ack <C-r>"
+nnoremap <Leader>s :Ack 
+vnoremap <Leader>s y:Ack -i <C-r>"
 let g:ack_use_dispatch=1 " requires vim-dispatch
 
 " --- vim-lawrencium settings
 cabbrev hg Hg
+cabbrev hgblame Hgannotate
+nnoremap <Leader>st :Hgstatus<CR>
+nnoremap <Leader>rev :Hgrevert<CR>
+nnoremap <Leader>log :Hglogthis<CR>
 
 " --- vim-dispatch settings
 cabbrev dispatch Dispatch
-nnoremap <leader>d :Dispatch
+nnoremap <Leader>d :Dispatch 
 
 " --- vim-expand-region settings
 vmap v <Plug>(expand_region_expand)
