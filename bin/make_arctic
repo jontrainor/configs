@@ -1,0 +1,16 @@
+#!/bin/bash
+compass compile
+
+#add path to railo
+rm -f ~/railo/arctic
+ln -sf $(pwd)/compass ~/railo/arctic
+
+#add path to projects/arctic for nginx
+rm -f ~/projects/arctic
+ln -sf $(pwd) ~/projects/arctic
+
+cd arctic
+~/pyenv/env/bin/python setup.py develop
+cd ../dashboard
+~/pyenv/env/bin/python setup.py develop
+restart_tomcat

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+initWindowIndex=$(tmux display-message -p '#I')
+windowIndex=$initWindowIndex
+
+tmux kill-window
+
+# $? is the error status from the last command
+# a value of zero means it did not error
+while [ $? -eq 0 ]; do
+	windowIndex=$((windowIndex + 1))
+	tmux move-window -s $windowIndex -t $((windowIndex - 1)) 2>/dev/null
+done
+
+tmux select-window -t :$initWindowIndex 2>/dev/null

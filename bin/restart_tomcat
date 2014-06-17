@@ -1,0 +1,3 @@
+#!/bin/bash
+pkill -9 -f 'java.*tomcat'
+~/tomcat/bin/startup.sh

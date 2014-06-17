@@ -1,0 +1,4 @@
+#!/bin/bash
+
+pkill gunicorn
+~/pyenv/env/bin/gunicorn --log-syslog \ --log-syslog-to unix:///dev/log --paste ~/pyenv/arctic.ini --pid=gunicorn.pid 
