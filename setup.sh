@@ -1,5 +1,11 @@
 #!/bin/sh
 
+#if osx install macvim; requires brew
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	brew install macvim --override-system-vim
+	brew linkapps
+fi
+
 #initialize vim plugin submodules
 git submodule init
 git submodule update

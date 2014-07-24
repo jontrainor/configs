@@ -8,8 +8,11 @@ set autoread
 " --- set leader to ','
 let mapleader = ","
 
-" --- enable copying from vim to clipboard
-set clipboard=unnamedplus
+" --- enable copying from vim to clipboard on linux
+"set clipboard=unnamedplus
+
+" --- enable copying from macvim to clipboard on osx
+set clipboard=unnamed
 
 " --- quick escape
 inoremap jj <Esc>
