@@ -11,9 +11,13 @@ git submodule init
 git submodule update
 
 #copy configs to home directory
-cp -rf ./.vimrc ~/
 cp -rf ./.vim ~/
-cp -rf ./.tmux.conf ~/
+cp -f ./vimrc ~/.vimrc
+cp -f ./tmux.conf ~/.tmux.conf
+cp -f ./bashrc ~/.bashrc
+cp -f ./inputrc ~/.inputrc
+cp -f ./ssh-config ~/.ssh/config
+cp -f ./onpeak-hgrc ~/.hgrc
 
 #copy scripts to ~/bin
 if [ ! -d ~/bin ]; then

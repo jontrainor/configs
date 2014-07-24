@@ -1,0 +1,8 @@
+set completion-ignore-case on
+
+set show-all-if-ambiguous on
+set show-all-if-unmodified on
+
+set completion-map-case on
+
+TAB: menu-complete
