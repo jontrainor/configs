@@ -6,6 +6,11 @@ alias bug='cd /home/jtrainor/projects/bugs'
 alias tmux="tmux -2"
 alias nosetests="nosetests --exe"
 
+#osx specific aliases
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	alias vim="mvim -v"
+fi
+
 #relies on xclip being installed
 
 # A shortcut function that simplifies usage of xclip.
