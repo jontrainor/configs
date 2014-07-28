@@ -34,6 +34,12 @@ cp -f ./profile ~/.profile
 cp -f ./ssh-config ~/.ssh/config
 cp -f ./onpeak-hgrc ~/.hgrc
 
+if [ ! -d ~/hgrc.d ]; then
+	mkdir ~/hgrc.d
+	echo "install mercurial extensions"
+fi
+cp -f ./hgignore ~/hgrc.d/.hgignore
+
 #copy scripts to ~/bin
 if [ ! -d ~/bin ]; then
 	mkdir ~/bin

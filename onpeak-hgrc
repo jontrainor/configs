@@ -137,9 +137,9 @@ l8 = log -l 8
 l9 = log -l 9
 ? = status
 ?? = diff
-. = log -l 10 --style=/home/jtrainor/hgrc.d/map-cmdline.slog
+. = log -l 10 --style=$HOME/hgrc.d/map-cmdline.slog
 .. = . -v
-, = glog -l 20 --style=/home/jtrainor/hgrc.d/map-cmdline.slog
+, = glog -l 20 --style=$HOME/hgrc.d/map-cmdline.slog
 ,, = , -v
 ,+ = , -l 10000
 @ = !hg , -r ${1}:-20
@@ -160,3 +160,7 @@ kbronze = https://bugz.onpeak.com/kiln/Code/Repositories/c3p0/bronze
 [hooks]
 ;pre-push = C:\scripts\devtools\bin\cfcompile.bat compass
 ;pre-push = C:\scripts\checkjs.bat
+
+[hostfingerprints]
+bugz.onpeak.com = 81:24:59:b2:58:1e:97:6b:2e:a2:d8:b9:98:e5:b1:d9:bf:f6:70:ab
+bugs.onpeak.com = 81:24:59:b2:58:1e:97:6b:2e:a2:d8:b9:98:e5:b1:d9:bf:f6:70:ab
