@@ -2,8 +2,10 @@
 
 #if osx install macvim; requires brew
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	brew install macvim --override-system-vim
-	brew linkapps
+	if ! hash mvim 2>/dev/null; then
+		brew install macvim --override-system-vim
+		brew linkapps
+	fi
 fi
 
 #initialize vim plugin submodules
@@ -16,6 +18,7 @@ cp -f ./vimrc ~/.vimrc
 cp -f ./tmux.conf ~/.tmux.conf
 cp -f ./bashrc ~/.bashrc
 cp -f ./inputrc ~/.inputrc
+cp -f ./profile ~/.profile
 cp -f ./ssh-config ~/.ssh/config
 cp -f ./onpeak-hgrc ~/.hgrc
 

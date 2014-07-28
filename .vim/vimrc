@@ -1,3 +1,6 @@
+" --- set shell
+set shell=/bin/bash
+
 " --- enable filetype plugins
 filetype plugin on
 filetype indent on

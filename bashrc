@@ -8,10 +8,16 @@ alias repo='cd /home/jtrainor/projects'
 alias bug='cd /home/jtrainor/projects/bugs'
 alias tmux="tmux -2"
 alias nosetests="nosetests --exe"
+alias ls="ls -G"
+alias ll="ls -l"
+alias la="ls -a"
+alias lla="ls -la"
 
 #osx specific aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
-	alias vim="mvim -v"
+	if hash mvim 2>/dev/null; then
+		alias vim="mvim -v"
+	fi
 fi
 
 #relies on xclip being installed
@@ -62,4 +68,3 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 
 # Copy tmux buffer
 alias tmuxcopy="tmux show-buffer | cb"
-set GIT_DISCOVERY_ACROSS_FILESYSTEM=1
