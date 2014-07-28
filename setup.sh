@@ -1,10 +1,22 @@
 #!/bin/sh
 
-#if osx install macvim; requires brew
+#if osx 
 if [[ "$OSTYPE" == "darwin"* ]]; then
+	# install brew
+	# from install instructions on brew.sh
+	if ! hash brew 2>/dev/null; then
+		ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+	fi
+
+	# install macvim
 	if ! hash mvim 2>/dev/null; then
 		brew install macvim --override-system-vim
 		brew linkapps
+	fi
+
+	# fix tmux copy/paste
+	if ! hash reattach-to-user-namespace 2>/dev/null; then
+		brew install reattach-to-user-namespace
 	fi
 fi
 
