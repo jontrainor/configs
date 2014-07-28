@@ -1,5 +1,8 @@
 export PATH=$HOME/bin:$PATH
 
+#custom prompt
+PS1="\u@\h:\w $ "
+
 #personal aliases
 alias repo='cd /home/jtrainor/projects'
 alias bug='cd /home/jtrainor/projects/bugs'
@@ -59,3 +62,4 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 
 # Copy tmux buffer
 alias tmuxcopy="tmux show-buffer | cb"
+set GIT_DISCOVERY_ACROSS_FILESYSTEM=1
