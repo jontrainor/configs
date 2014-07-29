@@ -14,6 +14,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew linkapps
 	fi
 
+	# install ack for ack.vim plugin
+	if ! hash ack 2>/dev/null; then
+		brew install ack
+	fi
+
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
 		brew install reattach-to-user-namespace
