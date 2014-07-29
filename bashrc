@@ -21,6 +21,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
 
+#copy/paste from tmux buffers to linux clipboard
 #relies on xclip being installed
 
 # A shortcut function that simplifies usage of xclip.
@@ -68,4 +69,7 @@ alias cbwd="pwd | cb"
 alias cbhs="cat $HISTFILE | tail -n 1 | cb" 
 
 # Copy tmux buffer
-alias tmuxcopy="tmux show-buffer | cb"
+# alias tmuxcopy="tmux show-buffer | cb"
+
+#copy/paste from tmux buffers to osx
+alias tmuxcopy="tmux saveb -|pbcopy"
