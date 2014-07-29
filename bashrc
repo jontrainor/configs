@@ -4,14 +4,15 @@ export PATH=$HOME/bin:$PATH
 PS1="\u@\h:\w $ "
 
 #personal aliases
-alias repo='cd /home/jtrainor/projects'
-alias bug='cd /home/jtrainor/projects/bugs'
 alias tmux="tmux -2"
 alias nosetests="nosetests --exe"
 alias ls="ls -G"
 alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
+
+#aliases for sshing to vms
+alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
 
 #osx specific aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
