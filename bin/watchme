@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if ! hash compass 2>/dev/null; then
+	sudo gem update --system
+	sudo gem install compass
+fi
+
+if ! hash watchmedo 2>/dev/null; then
+	if ! hash pip 2>/dev/null; then
+		easy_install pip
+	fi
+	sudo pip install watchdog
+fi
+
+compass compile
+dev/scripts/packcss.sh && dev/scripts/packjs.sh
+watchmedo shell-command  --patterns="*.css;*.js" --ignore-directories --ignore-patterns="*node_modules*;*godview-min.js*;*arctic.css" --recursive --command='echo "${watch_src_path}" && dev/scripts/packcss.sh && dev/scripts/packjs.sh' .
