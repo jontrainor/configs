@@ -1,0 +1,15 @@
+#!/bin/bash
+startServerFct='function startServer {
+	if [ -d "/media/sf_projects/$1" ]; then
+		cd /media/sf_projects/$1
+		sudo make_arctic
+		sudo gun arctic
+	else
+		echo "$1 directory does not exist"
+	fi
+	sudo onpeakdev
+	HERE
+}'
+
+# define function then execute
+ssh -t -p 2222 onpeakdev@127.0.0.1 "$startServerFct; startServer $1"
