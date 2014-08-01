@@ -2,8 +2,8 @@
 startServerFct='function startServer {
 	if [ -d "/media/sf_projects/$1" ]; then
 		cd /media/sf_projects/$1
-		sudo make_arctic
-		sudo gun arctic
+		make_arctic
+		gun arctic
 	else
 		echo "$1 directory does not exist"
 	fi
