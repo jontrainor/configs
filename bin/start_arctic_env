@@ -7,8 +7,6 @@ startServerFct='function startServer {
 	else
 		echo "$1 directory does not exist"
 	fi
-	sudo onpeakdev
-	HERE
 }'
 
 # define function then execute
