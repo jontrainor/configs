@@ -164,3 +164,5 @@ kbronze = https://bugz.onpeak.com/kiln/Code/Repositories/c3p0/bronze
 [hostfingerprints]
 bugz.onpeak.com = 81:24:59:b2:58:1e:97:6b:2e:a2:d8:b9:98:e5:b1:d9:bf:f6:70:ab
 bugs.onpeak.com = 81:24:59:b2:58:1e:97:6b:2e:a2:d8:b9:98:e5:b1:d9:bf:f6:70:ab
+fogbugs.onpeak.com = 81:24:59:b2:58:1e:97:6b:2e:a2:d8:b9:98:e5:b1:d9:bf:f6:70:ab
+fogbugz.onpeak.com = 81:24:59:b2:58:1e:97:6b:2e:a2:d8:b9:98:e5:b1:d9:bf:f6:70:ab
