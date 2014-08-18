@@ -204,6 +204,16 @@ au FileType javascript setlocal noexpandtab
 " Python-specific options
 au FileType python setlocal shiftwidth=4 tabstop=4 expandtab
 
+"smart indent when entering insert mode with i on empty lines
+function! IndentWithI()
+	if len(getline('.')) == 0
+		return "\"_ddO"
+	else
+		return "i"
+	endif
+endfunction
+nnoremap <expr> i IndentWithI()
+
 " --- ctrlp settings
 let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
