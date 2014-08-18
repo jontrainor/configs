@@ -26,6 +26,9 @@ nmap <Leader><Leader> V
 " --- fast saving
 nmap <leader>w :w!<cr>
 
+" --- reload vimrc settings
+nmap <leader>r :source ~/.vimrc<cr>
+
 " --- not completely VI compatible
 set nocompatible
 
@@ -131,14 +134,25 @@ map <Leader>v :vnew<CR>
 map <Leader>< :cold<CR>
 map <Leader>> :cnew<CR>
 
-" close buffer
+" --- close buffer
 map <Leader>x :bd<CR>
 
-map <Leader>g :diffget
-map <Leader>G :diffget<CR>
-map <Leader>p :diffput
-map <Leader>P :diffput<CR>
-map <Leader>u :diffupdate<CR>
+" --- word to uppercase/lowercase
+"  mQ sets the mark at the current cursor position and `Q sets the cursor to
+"  that position
+nmap <leader>u mQviwU`Q
+nmap <leader>l mQviwu`Q
+
+" --- first letter to uppercase/lowercase
+nmap <leader>U mQgewvU`Q
+nmap <leader>L  mQgewvu`Q
+
+" --- diff mappings
+" map <Leader>g :diffget
+" map <Leader>G :diffget<CR>
+" map <Leader>p :diffput
+" map <Leader>P :diffput<CR>
+" map <Leader>u :diffupdate<CR>
 
 map <F7> :vertical wincmd f<CR>
 
@@ -240,3 +254,6 @@ nnoremap <Leader>d :Dispatch
 " --- vim-expand-region settings
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
+
+" --- vim-sneak settings
+let g:sneak#s_next = 1
