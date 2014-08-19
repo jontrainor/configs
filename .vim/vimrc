@@ -26,6 +26,9 @@ nmap <Leader><Leader> V
 " --- fast saving
 nmap <leader>w :w!<cr>
 
+" --- delete file and remove from buffer
+nmap <leader>rm :call delete(expand('%')) \| bdelete!<cr>
+
 " --- reload vimrc settings
 nmap <leader>r :source ~/.vimrc<cr>
 
