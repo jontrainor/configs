@@ -43,3 +43,6 @@
 [submodule ".vim/bundle/vim-python-matchit"]
 	path = .vim/bundle/vim-python-matchit
 	url = https://github.com/voithos/vim-python-matchit.git
+[submodule ".vim/bundle/SearchComplete"]
+	path = .vim/bundle/SearchComplete
+	url = https://github.com/vim-scripts/SearchComplete.git
