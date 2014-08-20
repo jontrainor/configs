@@ -40,3 +40,6 @@
 [submodule ".vim/bundle/vim-sneak"]
 	path = .vim/bundle/vim-sneak
 	url = https://github.com/justinmk/vim-sneak.git
+[submodule ".vim/bundle/vim-python-matchit"]
+	path = .vim/bundle/vim-python-matchit
+	url = https://github.com/voithos/vim-python-matchit.git
