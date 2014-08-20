@@ -217,6 +217,9 @@ function! IndentWithI()
 endfunction
 nnoremap <expr> i IndentWithI()
 
+" --- turn matchit.vim on
+runtime macros/matchit.vim
+
 " --- ctrlp settings
 let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
