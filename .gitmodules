@@ -46,9 +46,9 @@
 [submodule ".vim/bundle/SearchComplete"]
 	path = .vim/bundle/SearchComplete
 	url = https://github.com/vim-scripts/SearchComplete.git
-[submodule ".vim/bundle/cf.vim"]
-	path = .vim/bundle/cf.vim
-	url = https://github.com/vim-scripts/cf.vim.git
 [submodule ".vim/bundle/vim-abolish"]
 	path = .vim/bundle/vim-abolish
 	url = https://github.com/tpope/vim-abolish.git
+[submodule ".vim/bundle/cf-utils.vim"]
+	path = .vim/bundle/cf-utils.vim
+	url = https://github.com/davejlong/cf-utils.vim.git
