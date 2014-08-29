@@ -52,3 +52,6 @@
 [submodule ".vim/bundle/cf-utils.vim"]
 	path = .vim/bundle/cf-utils.vim
 	url = https://github.com/davejlong/cf-utils.vim.git
+[submodule ".vim/bundle/matcher-ctrlp"]
+	path = .vim/bundle/matcher-ctrlp
+	url = https://github.com/burke/matcher.git

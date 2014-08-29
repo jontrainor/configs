@@ -19,6 +19,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install ack
 	fi
 
+	#install matcher for ctrlp vim plugin
+	if ! hash matcher 2>/dev/null; then
+		cd ./.vim/bundle/matcher-ctrlp/
+		make
+		make install
+	fi
+
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
 		brew install reattach-to-user-namespace
