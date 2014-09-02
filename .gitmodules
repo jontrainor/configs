@@ -55,3 +55,6 @@
 [submodule ".vim/bundle/matcher-ctrlp"]
 	path = .vim/bundle/matcher-ctrlp
 	url = https://github.com/burke/matcher.git
+[submodule ".vim/bundle/CamelCaseMotion"]
+	path = .vim/bundle/CamelCaseMotion
+	url = https://github.com/bkad/CamelCaseMotion.git

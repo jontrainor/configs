@@ -305,3 +305,12 @@ vmap <C-v> <Plug>(expand_region_shrink)
 
 " --- vim-sneak settings
 let g:sneak#s_next = 1
+
+" --- CamelCaseMotion settings
+"  remap w,b,e to use camelCaseMotion
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
