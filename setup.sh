@@ -37,14 +37,18 @@ git submodule init
 git submodule update
 
 #copy configs to home directory
-cp -rf ./.vim ~/
-cp -f ./vimrc ~/.vimrc
-cp -f ./tmux.conf ~/.tmux.conf
-cp -f ./bashrc ~/.bashrc
-cp -f ./inputrc ~/.inputrc
-cp -f ./profile ~/.profile
-cp -f ./ssh-config ~/.ssh/config
-cp -f ./onpeak-hgrc ~/.hgrc
+cp -rf .vim ~/
+cp -f vimrc ~/.vimrc
+cp -f tmux.conf ~/.tmux.conf
+cp -f bashrc ~/.bashrc
+cp -f inputrc ~/.inputrc
+cp -f profile ~/.profile
+cp -f onpeak-hgrc ~/.hgrc
+
+if [ ! -d ~/.ssh ]; then
+	mkdir ~/.ssh
+fi
+cp -f ssh-config ~/.ssh/config
 
 if [ ! -d ~/hgrc.d ]; then
 	mkdir ~/hgrc.d
