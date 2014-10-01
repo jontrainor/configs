@@ -56,6 +56,11 @@ if [ ! -d ~/hgrc.d ]; then
 fi
 cp -f ./hgignore ~/hgrc.d/.hgignore
 
+if [ ! -d ~/git.d ]; then
+	mkdir ~/git.d
+fi
+cp -rf ./git/* ~/git.d
+
 #copy scripts to ~/bin
 if [ ! -d ~/bin ]; then
 	mkdir ~/bin
