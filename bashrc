@@ -21,6 +21,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
 
+if hash git 2>/dev/null; then
+	source ~/.git/git-completion.bash
+fi
+
 #copy/paste from tmux buffers to linux clipboard
 #relies on xclip being installed
 
