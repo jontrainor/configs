@@ -201,7 +201,12 @@ cabbrev rc EditRC
 " cabbrev xs DeleteSession
 
 " Coldfusion-specific options
-au FileType cf setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
+au FileType cf call FileTypeCF()
+function! FileTypeCF()
+	call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
+	setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
+endfunction
+
 au FileType javascript setlocal noexpandtab
 
 " Python-specific options
@@ -294,6 +299,9 @@ cabbrev hgblame Hgannotate
 nnoremap <Leader>st :Hgstatus<CR>
 nnoremap <Leader>rev :Hgrevert<CR>
 nnoremap <Leader>log :Hglogthis<CR>
+
+" --- vim-gitgutter settings
+let g:gitgutter_realtime = 0
 
 " --- vim-dispatch settings
 cabbrev dispatch Dispatch
