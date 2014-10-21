@@ -10,6 +10,7 @@ alias ls="ls -G"
 alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -la"
+alias serve="python -m SimpleHTTPServer 8000"
 
 #aliases for sshing to vms
 alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
