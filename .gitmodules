@@ -64,3 +64,6 @@
 [submodule ".vim/bundle/jshint2.vim"]
 	path = .vim/bundle/jshint2.vim
 	url = https://github.com/Shutnik/jshint2.vim.git
+[submodule ".vim/bundle/closetag.vim"]
+	path = .vim/bundle/closetag.vim
+	url = https://github.com/vim-scripts/closetag.vim.git

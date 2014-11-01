@@ -14,4 +14,4 @@ fi
 
 compass compile
 dev/scripts/packcss.sh && dev/scripts/packjs.sh
-watchmedo shell-command  --patterns="*.css;*.js" --ignore-directories --ignore-patterns="*node_modules*;*godview-min.js*;*arctic.css" --recursive --command='echo "${watch_src_path}" && dev/scripts/packcss.sh && dev/scripts/packjs.sh' .
+watchmedo shell-command  --patterns="*.css;*.js" --ignore-directories --ignore-patterns="*node_modules*;*godview-min*;*arctic.css" --recursive --command='echo "${watch_src_path}" && dev/scripts/packcss.sh && dev/scripts/packjs.sh' .

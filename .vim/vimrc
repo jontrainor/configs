@@ -166,6 +166,10 @@ nnoremap ' `
 nnoremap ` '
 nnoremap U 
 
+" --- explorer mode settings
+nmap <leader>e :Explore<cr>
+let g:netrw_liststyle=3
+
 " javascript console log macro
 nnoremap <leader>cj oconsole.log();<esc>hi
 
@@ -322,3 +326,21 @@ map <silent> e <Plug>CamelCaseMotion_e
 sunmap w
 sunmap b
 sunmap e
+
+" --- jshint2 settings
+let g:jshint2_save = 1
+
+" jshint validation
+nnoremap <silent><F1> :JSHint<CR>
+inoremap <silent><F1> <C-O>:JSHint<CR>
+vnoremap <silent><F1> :JSHint<CR>
+
+" show next jshint error
+nnoremap <silent><F2> :lnext<CR>
+inoremap <silent><F2> <C-O>:lnext<CR>
+vnoremap <silent><F2> :lnext<CR>
+
+" show previous jshint error
+nnoremap <silent><F3> :lprevious<CR>
+inoremap <silent><F3> <C-O>:lprevious<CR>
+vnoremap <silent><F3> :lprevious<CR>
