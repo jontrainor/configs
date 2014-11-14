@@ -207,8 +207,8 @@ cabbrev rc EditRC
 " Coldfusion-specific options
 au FileType cf call FileTypeCF()
 function! FileTypeCF()
-	call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
-	setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
+call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
+setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
 endfunction
 
 au FileType javascript setlocal noexpandtab
@@ -218,11 +218,11 @@ au FileType python setlocal shiftwidth=4 tabstop=4 expandtab
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
-	if len(getline('.')) == 0
-		return "\"_ddO"
-	else
-		return "i"
-	endif
+if len(getline('.')) == 0
+	return "\"_ddO"
+else
+	return "i"
+endif
 endfunction
 nnoremap <expr> i IndentWithI()
 
@@ -231,6 +231,9 @@ runtime macros/matchit.vim
 
 " --- ctrlp settings
 nmap ; :CtrlPBuffer<CR>
+let g:ctrlp_prompt_mappings = {
+	\ 'ToggleType(1)':        ['<c-f>', '<c-up>', ';']
+	\ }
 
 let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
@@ -329,20 +332,5 @@ sunmap w
 sunmap b
 sunmap e
 
-" " --- jshint2 settings
-" let g:jshint2_save = 1
-
-" " jshint validation
-" nnoremap <silent><F1> :JSHint<CR>
-" inoremap <silent><F1> <C-O>:JSHint<CR>
-" vnoremap <silent><F1> :JSHint<CR>
-
-" " show next jshint error
-" nnoremap <silent><F2> :lnext<CR>
-" inoremap <silent><F2> <C-O>:lnext<CR>
-" vnoremap <silent><F2> :lnext<CR>
-
-" " show previous jshint error
-" nnoremap <silent><F3> :lprevious<CR>
-" inoremap <silent><F3> <C-O>:lprevious<CR>
-" vnoremap <silent><F3> :lprevious<CR>
+" --- limelight.vim settings
+nnoremap <Leader>ll :Limelight!!0.5<CR>
