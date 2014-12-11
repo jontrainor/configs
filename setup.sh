@@ -44,6 +44,7 @@ cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
 cp -f profile ~/.profile
 cp -f onpeak-hgrc ~/.hgrc
+cp -f gitconfig ~/.gitconfig
 
 if [ ! -d ~/.ssh ]; then
 	mkdir ~/.ssh

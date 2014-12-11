@@ -1,0 +1,25 @@
+[difftool "kdiff3"]
+    path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+    trustExitCode = false
+[difftool]
+    prompt = false
+[diff]
+    tool = kdiff3
+[mergetool "kdiff3"]
+    path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
+    trustExitCode = false
+[mergetool]
+    keepBackup = false
+[merge]
+    tool = kdiff3
+[user] 
+	name = Jon Trainor
+	email = jon.trainor@onpeak.com
+[alias]
+	st = status
+	co = checkout
+	br = branch
+	up = rebase
+	ci = commit
+[core]
+	editor = vim
