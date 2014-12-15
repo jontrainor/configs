@@ -1,7 +1,7 @@
 export PATH=$HOME/bin:$PATH
 
 #custom prompt
-PS1="\u@\h:\w $ "
+PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\] $ "
 
 #personal aliases
 alias tmux="tmux -2"
@@ -24,6 +24,7 @@ fi
 
 if hash git 2>/dev/null; then
 	source ~/git.d/git-completion.bash
+	source ~/git.d/git-prompt.sh
 fi
 
 #copy/paste from tmux buffers to linux clipboard
@@ -78,3 +79,4 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 
 #copy/paste from tmux buffers to osx
 alias tmuxcopy="tmux saveb -|pbcopy"
+
