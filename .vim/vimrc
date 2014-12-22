@@ -339,3 +339,7 @@ sunmap e
 
 " --- limelight.vim settings
 nnoremap <Leader>ll :Limelight!!0.5<CR>
+
+" --- syntastic settings
+let g:syntastic_always_populate_loc_list = 1
+nnoremap <Leader>sy :SyntasticCheck<CR>:Errors<CR><C-W>j
