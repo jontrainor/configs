@@ -314,6 +314,9 @@ nnoremap <Leader>st :Hgstatus<CR>
 nnoremap <Leader>rev :Hgrevert<CR>
 nnoremap <Leader>log :Hglogthis<CR>
 
+" --- vim-fugitive
+nnoremap <F12> :Gblame<CR>
+
 " --- vim-gitgutter settings
 let g:gitgutter_realtime = 0
 
