@@ -14,6 +14,7 @@ alias serve="python -m SimpleHTTPServer 8000"
 
 #aliases for sshing to vms
 alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
+alias sshdevtest="ssh -p 2223 onpeakdev@127.0.0.1"
 
 #osx specific aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
