@@ -20,9 +20,6 @@ set clipboard=unnamed
 " --- quick escape
 inoremap jj <Esc>
 
-" --- enter visual mode
-nmap <Leader><Leader> V
-
 " --- fast saving
 nmap <leader>w :w!<cr>
 
@@ -157,15 +154,6 @@ nmap <leader>L  mQgewvu`Q
 " map <Leader>P :diffput<CR>
 " map <Leader>u :diffupdate<CR>
 
-map <F7> :vertical wincmd f<CR>
-
-map <Leader>; :cex system('node dev/semis.js resources')<CR>:cope<CR>
-
-inoremap <C-@> <C-N>
-nnoremap ' `
-nnoremap ` '
-nnoremap U 
-
 " --- explorer mode settings
 nmap <leader>e :Explore<cr>
 let g:netrw_liststyle=3
@@ -189,20 +177,6 @@ vmap r "_dP
 " --- yank into system clipboard
 nnoremap <leader>y "+yy
 vnoremap <leader>y "+y
-
-" Shift buffer viewport by 3 lines instead of 1
-nnoremap <C-e> 3<C-e>
-nnoremap <C-y> 3<C-y>
-
-" Extend ragtag for tags with no body (ie, 'Foo' -> '<Foo/>')
-inoremap <silent> <buffer> <C-X>. <Esc>ciw<Lt><C-R>"/><Esc>a
-
-com! Cfg :source ~/.vimrc
-com! -nargs=0 EditRC :topleft vs ~/.vim/vimrc
-
-cabbrev rc EditRC
-" cabbrev ss CreateSession
-" cabbrev xs DeleteSession
 
 " Coldfusion-specific options
 au FileType cf call FileTypeCF()
