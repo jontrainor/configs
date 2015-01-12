@@ -204,7 +204,6 @@ nnoremap <expr> i IndentWithI()
 runtime macros/matchit.vim
 
 " --- ctrlp settings
-nmap ; :CtrlPBuffer<CR>
 let g:ctrlp_prompt_mappings = {
 	\ 'ToggleType(1)':        ['<c-f>', '<c-up>', ';']
 	\ }
