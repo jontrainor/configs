@@ -26,6 +26,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		make install
 	fi
 
+	#install vimpdb for debugging pythong
+	pip install vimpdb
+
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
 		brew install reattach-to-user-namespace

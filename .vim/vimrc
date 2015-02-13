@@ -310,3 +310,7 @@ nnoremap <Leader>ll :Limelight!!0.5<CR>
 " --- syntastic settings
 let g:syntastic_always_populate_loc_list = 1
 nnoremap <Leader>sy :SyntasticCheck<CR>:Errors<CR><C-W>j
+
+" --- vimpdb settings
+nnoremap <leader>pp oimport pprint; import vimpdb; pp=pprint.pprint; vimpdb.set_trace()<esc>
+        
