@@ -140,8 +140,8 @@ map <Leader>x :bd<CR>
 " --- word to uppercase/lowercase
 "  mQ sets the mark at the current cursor position and `Q sets the cursor to
 "  that position
-nmap <leader>u mQviwU`Q
-nmap <leader>l mQviwu`Q
+" nmap <leader>u mQviwU`Q
+" nmap <leader>l mQviwu`Q
 
 " --- first letter to uppercase/lowercase
 nmap <leader>U mQgewvU`Q
@@ -191,6 +191,7 @@ au FileType javascript setlocal noexpandtab
 au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 " Haxe-specific options
+au BufNewFile,BufRead *.hx set filetype=haxe
 au FileType haxe setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 "smart indent when entering insert mode with i on empty lines

@@ -82,3 +82,6 @@
 [submodule ".vim/bundle/vaxe"]
 	path = .vim/bundle/vaxe
 	url = https://github.com/jdonaldson/vaxe.git
+[submodule ".vim/bundle/vim-haxe-syntax"]
+	path = .vim/bundle/vim-haxe-syntax
+	url = https://github.com/MarcWeber/vim-haxe-syntax.git

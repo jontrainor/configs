@@ -1,16 +1,29 @@
 export PATH=$HOME/bin:$PATH
 
 #custom prompt
-PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\] $ "
+PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\]\n$ "
 
 #personal aliases
 alias tmux="tmux -2"
 alias nosetests="nosetests --exe"
 alias ls="ls -G"
-alias ll="ls -l"
+alias ll="ls -FGlAhp"
 alias la="ls -a"
 alias lla="ls -la"
 alias serve="python -m SimpleHTTPServer 8000"
+
+# cd () { builtin cd "$@"; ll; }
+alias cd..=' cd ../'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias .3='cd ../../../'
+alias .4='cd ../../../../'
+alias .5='cd ../../../../../'
+alias .6='cd ../../../../../../'
+alias cdcompass="cd ~/projects/compass"
+
+# ll outputs in kb/mb/gb
+export BLOCKSIZE=1k
 
 #aliases for sshing to vms
 alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"

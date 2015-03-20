@@ -21,5 +21,9 @@
 	br = branch
 	up = rebase
 	ci = commit
+
+# Thanks http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs for log graph aliases
+	lg1 = !"git --no-pager log -14 --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)%n' --all"
+	lg2 = !"git --no-pager log -6 --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%n' --all"
 [core]
 	editor = vim
