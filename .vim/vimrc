@@ -160,6 +160,7 @@ let g:netrw_liststyle=3
 
 " javascript console log macro
 nnoremap <leader>cj oconsole.log();<esc>hi
+nnoremap <leader>dj odebugger;<esc>
 
 " coldfusion dump macro
 nnoremap <leader>cd o<cfdump abort="true" var="##"><esc>hhi
