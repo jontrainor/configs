@@ -123,6 +123,9 @@ set undofile
 set undolevels=1000
 set undoreload=10000
 
+" --- gundo.vim settings
+nnoremap <F5> :GundoToggle<CR>
+
 " --- remappings
 map K :<BS>
 map <Leader>k <C-W>k

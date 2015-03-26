@@ -85,3 +85,6 @@
 [submodule ".vim/bundle/vim-haxe-syntax"]
 	path = .vim/bundle/vim-haxe-syntax
 	url = https://github.com/MarcWeber/vim-haxe-syntax.git
+[submodule ".vim/bundle/gundo.vim"]
+	path = .vim/bundle/gundo.vim
+	url = https://github.com/sjl/gundo.vim.git
