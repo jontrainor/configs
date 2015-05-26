@@ -186,7 +186,7 @@ vnoremap <leader>y "+y
 au FileType cf call FileTypeCF()
 function! FileTypeCF()
 call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
-setlocal noexpandtab ignorecase grepprg=ack\ --type=cf\ -i\ $*
+setlocal noexpandtab ignorecase
 endfunction
 
 au FileType javascript setlocal noexpandtab
