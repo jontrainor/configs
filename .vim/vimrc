@@ -322,3 +322,9 @@ nnoremap <Leader>sy :SyntasticCheck<CR>:Errors<CR><C-W>j
 " --- vimpdb settings
 nnoremap <leader>pp oimport pprint; import vimpdb; pp=pprint.pprint; vimpdb.set_trace()<esc>
         
+" --- vim-javascript settings
+let javascript_enable_domhtmlcss = 1
+
+" --- clever-f.vim settings
+let g:clever_f_chars_match_any_signs = ';' 
+

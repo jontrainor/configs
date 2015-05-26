@@ -82,3 +82,9 @@
 [submodule ".vim/bundle/gundo.vim"]
 	path = .vim/bundle/gundo.vim
 	url = https://github.com/sjl/gundo.vim.git
+[submodule ".vim/bundle/vim-javascript"]
+	path = .vim/bundle/vim-javascript
+	url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/bundle/clever-f.vim"]
+	path = .vim/bundle/clever-f.vim
+	url = https://github.com/rhysd/clever-f.vim.git
