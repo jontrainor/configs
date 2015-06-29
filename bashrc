@@ -1,9 +1,15 @@
-export PATH=$HOME/bin:$PATH
+# prepend to PATH
+PATH=$HOME/bin:$PATH
 
-#custom prompt
+# append to PATH
+PATH=$PATH:/usr/local/lib/node_modules
+
+export PATH
+
+# custom prompt
 PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\]\n$ "
 
-#personal aliases
+# personal aliases
 alias tmux="tmux -2"
 alias nosetests="nosetests --exe"
 alias ls="ls -G"
@@ -26,11 +32,11 @@ alias cdcompass="cd ~/projects/compass"
 # ll outputs in kb/mb/gb
 export BLOCKSIZE=1k
 
-#aliases for sshing to vms
+# aliases for sshing to vms
 alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
 alias sshdevtest="ssh -p 2223 onpeakdev@127.0.0.1"
 
-#osx specific aliases
+# osx specific aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	if hash mvim 2>/dev/null; then
 		alias vim="mvim -v"

@@ -8,6 +8,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 	fi
 
+	brew update
+
 	# install macvim
 	if ! hash mvim 2>/dev/null; then
 		brew install macvim --override-system-vim
@@ -19,14 +21,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install ack
 	fi
 
-	#install matcher for ctrlp vim plugin
+	# install matcher for ctrlp vim plugin
 	if ! hash matcher 2>/dev/null; then
 		cd ./.vim/bundle/matcher-ctrlp/
 		make
 		make install
 	fi
 
-	#install vimpdb for debugging pythong
+	# install vimpdb for debugging python
 	pip install vimpdb
 
 	# fix tmux copy/paste
