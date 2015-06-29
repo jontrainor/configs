@@ -11,6 +11,7 @@ alias ll="ls -FGlAhp"
 alias la="ls -a"
 alias lla="ls -la"
 alias serve="python -m SimpleHTTPServer 8000"
+alias com="cd ~/projects/compass"
 
 # cd () { builtin cd "$@"; ll; }
 alias cd..=' cd ../'
