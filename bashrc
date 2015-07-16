@@ -18,6 +18,7 @@ alias la="ls -a"
 alias lla="ls -la"
 alias serve="python -m SimpleHTTPServer 8000"
 alias com="cd ~/projects/compass"
+alias rtail-server="rtail-server --web-port 8889"
 
 # cd () { builtin cd "$@"; ll; }
 alias cd..=' cd ../'

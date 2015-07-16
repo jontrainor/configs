@@ -331,3 +331,18 @@ let g:clever_f_chars_match_any_signs = ';'
 " --- git-gutter settings
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
+
+" --- syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_python_checkers = ["pylint"]
+let g:syntastic_scss_checkers = ["scss_lint"]
+let g:syntastic_cf_checkers = ["cflint"]

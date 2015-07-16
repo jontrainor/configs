@@ -35,6 +35,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
 		brew install reattach-to-user-namespace
 	fi
+
+	# install linters
+	if ! hash jshint 2>/dev/null; then
+		npm install -g jshint
+	fi
+
+	if ! hash pylint 2>/dev/null; then
+		pip install pylint
+	fi
 fi
 
 #initialize vim plugin submodules
