@@ -44,6 +44,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	if ! hash pylint 2>/dev/null; then
 		pip install pylint
 	fi
+
+	if ! hash scss-lint 2>/dev/null; then
+		gem install scss-lint
+	fi
 fi
 
 #initialize vim plugin submodules

@@ -219,7 +219,7 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
 let g:ctrlp_custom_ignore = {
-\     'dir': '\v[\/]\.(git|hg)$',
+\     'dir': '\v[\/](\.(git|hg)$|ccss[\/])',
 \     'file': '\v\.(pyc|o|hi)$'
 \  }
 " Caching
