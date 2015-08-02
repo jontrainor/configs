@@ -91,3 +91,6 @@
 [submodule ".vim/bundle/cflint-syntastic"]
 	path = .vim/bundle/cflint-syntastic
 	url = https://github.com/cflint/cflint-syntastic.git
+[submodule ".vim/bundle/vim-vinegar"]
+	path = .vim/bundle/vim-vinegar
+	url = https://github.com/tpope/vim-vinegar.git
