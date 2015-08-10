@@ -315,11 +315,6 @@ let g:sneak#s_next = 1
 " --- limelight.vim settings
 nnoremap <Leader>ll :Limelight!!0.5<CR>
 
-" --- syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-nnoremap <Leader>sy :SyntasticCheck<CR>:Errors<CR><C-W>j
-nnoremap <Leader>st :SyntasticToggleMode<CR>
-
 " --- vimpdb settings
 nnoremap <leader>pp oimport pprint; import vimpdb; pp=pprint.pprint; vimpdb.set_trace()<esc>
         
@@ -334,6 +329,10 @@ nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
 " --- syntastic settings
+let g:syntastic_always_populate_loc_list = 1
+nnoremap <Leader>sy :SyntasticCheck<CR>:Errors<CR><C-W>j
+nnoremap <Leader>st :SyntasticToggleMode<CR>
+
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -346,4 +345,4 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ["jshint"]
 let g:syntastic_python_checkers = ["pylint"]
 let g:syntastic_scss_checkers = ["scss_lint"]
-let g:syntastic_cf_checkers = ["cflint"]
+let g:syntastic_cf_checkers = []

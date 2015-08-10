@@ -1,4 +1,7 @@
-#!/bin/sh
+#!/bin/sh -e
+
+# save current working directory
+cwd=$(pwd)
 
 #if osx 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -47,6 +50,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	if ! hash scss-lint 2>/dev/null; then
 		gem install scss-lint
+
+	fi
+
+	if ! hash cflint 2>/dev/null; then
+		brew install maven
+		cd ~
+		git clone https://github.com/cflint/CFLint.git
+		cd CFLint
+		mvn clean install -D assembleDirectory=/usr/local
+		cd $cwd
 	fi
 fi
 
