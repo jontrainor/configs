@@ -1,0 +1,14 @@
+#!/bin/sh -e
+
+# $1 = dns to switch to
+
+#if osx 
+if [[ "$OSTYPE" == "darwin"* ]]; then
+	if [[ "$1" == "adfreetime" ]]; then
+		sudo networksetup -setdnsservers Wi-Fi 192.254.74.200 198.27.106.151
+	else
+		sudo networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
+	fi
+	sudo killall -HUP mDNSResponder
+	sudo discoveryutil udnsflushcaches
+fi

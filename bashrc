@@ -20,6 +20,10 @@ alias serve="python -m SimpleHTTPServer 8000"
 alias com="cd ~/projects/compass"
 alias rtail-server="rtail-server --web-port 8889"
 
+# osx
+# flush dns cache
+alias dnsflush="sudo killall -HUP mDNSResponder"
+
 # cd () { builtin cd "$@"; ll; }
 alias cd..=' cd ../'
 alias ..='cd ../'
