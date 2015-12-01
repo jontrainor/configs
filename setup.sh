@@ -63,7 +63,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
 
-#initialize vim plugin submodules
+#initialize vim & tmux plugin submodules
 git submodule init
 git submodule update
 
@@ -76,6 +76,11 @@ cp -f inputrc ~/.inputrc
 cp -f profile ~/.profile
 cp -f onpeak-hgrc ~/.hgrc
 cp -f gitconfig ~/.gitconfig
+
+if [ ! -d ~/.tmux ]; then
+	mkdir ~/.tmux
+fi
+cp -rf ./tmux/* ~/.tmux
 
 if [ ! -d ~/.ssh ]; then
 	mkdir ~/.ssh
