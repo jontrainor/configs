@@ -345,4 +345,5 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ["jshint"]
 let g:syntastic_python_checkers = ["pylint"]
 let g:syntastic_scss_checkers = ["scss_lint"]
+let g:syntastic_c#_checkers = ["mcs"]
 let g:syntastic_cf_checkers = []
