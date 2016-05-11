@@ -161,6 +161,9 @@ nmap <leader>L  mQgewvu`Q
 nmap <leader>e :Explore<cr>
 let g:netrw_liststyle=3
 
+" skip python selenium tests
+nnoremap <leader>gp gg:%s/#@unittest/@unittest/g
+
 " javascript console log macro
 nnoremap <leader>cj oconsole.log();<esc>hi
 nnoremap <leader>dj odebugger;<esc>

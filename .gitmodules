@@ -112,3 +112,6 @@
 [submodule ".vim/bundle/targets.vim"]
 	path = .vim/bundle/targets.vim
 	url = git://github.com/wellle/targets.vim.git
+[submodule "tmux/plugins/tmux-scroll-copy-mode"]
+	path = tmux/plugins/tmux-scroll-copy-mode
+	url = https://github.com/NHDaly/tmux-scroll-copy-mode.git
