@@ -34,6 +34,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# install vimpdb for debugging python
 	pip install vimpdb
 
+	# install virtualenvwrapper
+	pip install virtualenvwrapper
+	if [ ! -d ~/.virtualenvs ]; then
+		mkdir ~/.virtualenvs
+	fi
+
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
 		brew install reattach-to-user-namespace
@@ -67,42 +73,47 @@ fi
 git submodule init
 git submodule update
 
+
 #copy configs to home directory
-cp -rf .vim ~/
 cp -f vimrc ~/.vimrc
 cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
 cp -f profile ~/.profile
-cp -f onpeak-hgrc ~/.hgrc
 cp -f gitconfig ~/.gitconfig
 
-if [ ! -d ~/.tmux ]; then
+if cp -R ./tmux/* ~/.tmux; then
+	echo 'tmux directory copied'
+else
+	rm -rf ~/.tmux
 	mkdir ~/.tmux
+	cp -R ./tmux/* ~/.tmux
+	echo 'tmux directory rebuilt'
 fi
-cp -rf ./tmux/* ~/.tmux
 
 if [ ! -d ~/.ssh ]; then
 	mkdir ~/.ssh
 fi
 cp -f ssh-config ~/.ssh/config
 
-if [ ! -d ~/hgrc.d ]; then
-	mkdir ~/hgrc.d
-	echo "install mercurial extensions"
-fi
-cp -f ./hgignore ~/hgrc.d/.hgignore
-
-if [ ! -d ~/git.d ]; then
+if cp -R ./git/* ~/git.d; then
+	echo 'git directory copied'
+else
+	rm -rf ~/git.d
 	mkdir ~/git.d
+	cp -R ./git/* ~/git.d
+	echo 'git directory rebuilt'
 fi
-cp -rf ./git/* ~/git.d
 
 #copy scripts to ~/bin
-if [ ! -d ~/bin ]; then
+if cp -R ./bin/* ~/bin; then
+	echo 'bin scripts directory copied'
+else
+	rm -rf ~/bin
 	mkdir ~/bin
+	cp -R ./bin/* ~/bin
+	echo 'bin scripts directory rebuilt'
 fi
-cp -rf ./bin/* ~/bin
 
 #create directories for vim sessions and undo
 cd ~/.vim
@@ -113,3 +124,5 @@ fi
 if [ ! -d ~/.vim/undodir ]; then
 	mkdir undodir
 fi
+
+echo 'setup complete'

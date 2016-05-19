@@ -106,3 +106,7 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 #copy/paste from tmux buffers to osx
 alias tmuxcopy="tmux saveb -|pbcopy"
 
+# virtualenvwrapper settings
+export WORKON_HOME=$HOME/.virtualenvs
+# export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh

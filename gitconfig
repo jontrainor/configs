@@ -8,10 +8,16 @@
 [mergetool "kdiff3"]
     path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
     trustExitCode = false
-[mergetool]
     keepBackup = false
 [merge]
     tool = kdiff3
+		# tool = diffconflicts
+
+[mergetool "diffconflicts"]
+		cmd = 'diffconflicts vim $BASE $LOCAL $REMOTE $MERGED' 
+    trustExitCode = true
+    keepBackup = false
+
 [user] 
 	name = Jon Trainor
 	email = jon.trainor@onpeak.com
