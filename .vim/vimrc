@@ -158,7 +158,7 @@ nmap <leader>L  mQgewvu`Q
 " map <Leader>u :diffupdate<CR>
 
 " --- explorer mode settings
-nmap <leader>e :Explore<cr>
+nmap <leader>e :Lexplore<cr>
 let g:netrw_liststyle=3
 
 " skip python selenium tests
