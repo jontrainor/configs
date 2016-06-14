@@ -284,6 +284,7 @@ colorscheme solarized
 let g:airline_solarized_bg='dark'
 let g:airline_theme='solarized'
 let g:airline#extensions#whitespace#enabled = 0
+let g:airline#extensions#virtualenv#enabled = 1
 
 " --- ack.vim settings
 cabbrev ack Ack
@@ -350,3 +351,12 @@ let g:syntastic_python_checkers = ["pylint"]
 let g:syntastic_scss_checkers = ["scss_lint"]
 let g:syntastic_c#_checkers = ["mcs"]
 let g:syntastic_cf_checkers = []
+
+" --- vim-virtualenv settings
+cnoreabbrev activate VirtualEnvActivate
+cnoreabbrev deactivate VirtualEnvDeactivate
+
+" --- vim-nose settings
+cnoreabbrev rt RunTest
+cnoreabbrev rt! RunTests!
+

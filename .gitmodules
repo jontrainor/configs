@@ -115,3 +115,9 @@
 [submodule "tmux/plugins/tmux-scroll-copy-mode"]
 	path = tmux/plugins/tmux-scroll-copy-mode
 	url = https://github.com/NHDaly/tmux-scroll-copy-mode.git
+[submodule ".vim/bundle/vim-nose"]
+	path = .vim/bundle/vim-nose
+	url = https://github.com/okcompute/vim-nose.git
+[submodule ".vim/bundle/vim-virtualenv"]
+	path = .vim/bundle/vim-virtualenv
+	url = https://github.com/jmcantrell/vim-virtualenv.git

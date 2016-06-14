@@ -76,6 +76,7 @@ git submodule update
 
 #copy configs to home directory
 cp -f vimrc ~/.vimrc
+cp -f .vim/vimrc ~/.vim/vimrc
 cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
@@ -113,6 +114,16 @@ else
 	mkdir ~/bin
 	cp -R ./bin/* ~/bin
 	echo 'bin scripts directory rebuilt'
+fi
+
+#copy vim plugins to ~/.vim/bundle
+if cp -R ./.vim/bundle/* ~/.vim/bundle; then
+	echo 'vim plugins directory copied'
+else
+	rm -rf ~/.vim/bundle
+	mkdir ~/.vim/bundle
+	cp -R ./.vim/bundle/* ~/.vim/bundle
+	echo 'vim plugins directory rebuilt'
 fi
 
 #create directories for vim sessions and undo
