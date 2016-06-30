@@ -223,13 +223,13 @@ let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
 let g:ctrlp_custom_ignore = {
 \     'dir': '\v[\/](\.(git|hg)$|ccss[\/])',
-\     'file': '\v\.(pyc|o|hi)$'
+\     'file': '\v\.(pyc|o|hi|orig)$'
 \  }
 " Caching
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_cache_dir = $XDG_CACHE_HOME.'/vim/ctrlp/'
-let g:ctrlp_max_depth = 10
+let g:ctrlp_max_depth = 15
 " Keymap
 let g:ctrlp_prompt_mappings = {
 \     'AcceptSelection("v")': ['<C-Enter>']
@@ -242,38 +242,6 @@ let g:ctrlp_mruf_max = 50
 let g:ctrlp_lazy_update = 500 " ms
 let g:ctrlp_working_path_mode = 'ra'
 
-" --- ctrlp matcher settings
-"  TODO: figure out why matcher isn't working on osx
-" let g:path_to_matcher = "/usr/local/bin/matcher"
-
-" let g:ctrlp_user_command = ['.git/', 'cd %s && git ls-files . -co --exclude-standard']
-
-" let g:ctrlp_match_func = { 'match': 'GoodMatch' }
-
-" function! GoodMatch(items, str, limit, mmode, ispath, crfile, regex)
-
-" 	" Create a cache file if not yet exists
-" 	let cachefile = ctrlp#utils#cachedir().'/matcher.cache'
-" 	if !( filereadable(cachefile) && a:items == readfile(cachefile) )
-" 		call writefile(a:items, cachefile)
-" 	endif
-" 	if !filereadable(cachefile)
-" 		return []
-" 	endif
-
-" 	" a:mmode is currently ignored. In the future, we should probably do
-" 	" something about that. the matcher behaves like "full-line".
-" 	let cmd = g:path_to_matcher.' --limit '.a:limit.' --manifest '.cachefile.' '
-" 	if !( exists('g:ctrlp_dotfiles') && g:ctrlp_dotfiles )
-" 		let cmd = cmd.'--no-dotfiles '
-" 	endif
-" 	let cmd = cmd.a:str
-
-" 	return split(system(cmd), "n")
-
-" endfunction
-
-
 " --- colorscheme
 set t_Co=256
 let g:solarized_termcolors=256
@@ -282,22 +250,14 @@ colorscheme solarized
 
 " --- vim-airline settings
 let g:airline_solarized_bg='dark'
-let g:airline_theme='solarized'
 let g:airline#extensions#whitespace#enabled = 0
 let g:airline#extensions#virtualenv#enabled = 1
 
 " --- ack.vim settings
 cabbrev ack Ack
-nnoremap <Leader>s :Ack 
-vnoremap <Leader>s y:Ack -i <C-r>"
+nnoremap <Leader>s :Ack --ignore-file=ext:orig -i
+vnoremap <Leader>s y:Ack --ignore-file=ext:orig -i <C-r>"
 let g:ack_use_dispatch=1 " requires vim-dispatch
-
-" --- vim-lawrencium settings
-cabbrev hg Hg
-cabbrev hgblame Hgannotate
-nnoremap <Leader>st :Hgstatus<CR>
-nnoremap <Leader>rev :Hgrevert<CR>
-nnoremap <Leader>log :Hglogthis<CR>
 
 " --- vim-fugitive
 nnoremap <F12> :Gblame<CR>
@@ -312,9 +272,6 @@ nnoremap <Leader>d :Dispatch
 " --- vim-expand-region settings
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
-
-" --- vim-sneak settings
-let g:sneak#s_next = 1
 
 " --- limelight.vim settings
 nnoremap <Leader>ll :Limelight!!0.5<CR>

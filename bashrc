@@ -41,6 +41,27 @@ export BLOCKSIZE=1k
 alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
 alias sshdevtest="ssh -p 2223 onpeakdev@127.0.0.1"
 
+# function for running all onpeak selenium tests in parallel
+function runOnpeakSeleniumTests() {
+	# requires virtualenvwrapper
+	workon selenium 
+
+	cd ~/projects/compass/dev/selenium_tests/arctic
+	sudo pip install -r ~/projects/compass/dev/selenium_tests/bootstrap.list --upgrade
+	sudo pip install nose_xunitmp --upgrade
+
+	TESTCMD="nosetests -v --with-xunitmp --xunit-file=~/projects/test_results/{1/}_selenium_testresults.xml {1}"
+	# FILES=$(find arctic dashboard legacy/mobile -name 'test_*.py')
+	FILES=$(find general -name 'test_*.py')
+ 
+	# sudo parallel --halt 1 --jobs 1 "$TESTCMD || $TESTCMD || $TESTCMD" ::: $FILES
+	sudo parallel --halt 1 --jobs 1 "$TESTCMD || $TESTCMD" ::: $FILES
+
+ # O. Tange (2011): GNU Parallel - The Command-Line Power Tool,
+ # ;login: The USENIX Magazine, February 2011:42-47.
+}
+export -f runOnpeakSeleniumTests
+
 # osx specific aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	if hash mvim 2>/dev/null; then
