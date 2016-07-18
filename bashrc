@@ -131,3 +131,5 @@ alias tmuxcopy="tmux saveb -|pbcopy"
 export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
+
+export LANG=en_US.UTF-8

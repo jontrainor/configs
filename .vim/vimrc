@@ -1,3 +1,6 @@
+scriptencoding utf-8
+set encoding=utf-8
+
 " --- set shell
 set shell=/bin/bash
 
@@ -248,6 +251,13 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
+" --- Show extra whitespace
+set list
+set listchars=tab:⇨\ ,trail:.,space:.,eol:¬,extends:>,precedes:<
+" colors based off of solarized dark
+hi SpecialKey cterm=NONE ctermfg=236 ctermbg=234
+hi NonText cterm=NONE ctermfg=236 ctermbg=234
+
 " --- vim-airline settings
 let g:airline_solarized_bg='dark'
 let g:airline#extensions#whitespace#enabled = 0
@@ -256,7 +266,7 @@ let g:airline#extensions#virtualenv#enabled = 1
 " --- ack.vim settings
 cabbrev ack Ack
 nnoremap <Leader>s :Ack --ignore-file=ext:orig -i
-vnoremap <Leader>s y:Ack --ignore-file=ext:orig -i <C-r>"
+vnoremap <Leader>s y:Ack --ignore-file=ext:orig -i<Space><C-r>"
 let g:ack_use_dispatch=1 " requires vim-dispatch
 
 " --- vim-fugitive
