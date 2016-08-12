@@ -36,7 +36,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	# install virtualenvwrapper
 	pip install virtualenvwrapper
-	if [ ! -d ~/.virtualenvs ]; then
+	if [[ ! -d ~/.virtualenvs ]]; then
 		mkdir ~/.virtualenvs
 	fi
 
@@ -55,7 +55,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 
 	if ! hash scss-lint 2>/dev/null; then
-		gem install scss-lint
+		sudo gem install scss-lint
 
 	fi
 
@@ -76,11 +76,14 @@ git submodule update
 
 #copy configs to home directory
 cp -f vimrc ~/.vimrc
+if [[ ! -d ~/.vim ]]; then
+	mkdir ~/.vim
+fi
 cp -f .vim/vimrc ~/.vim/vimrc
 cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
-cp -f profile ~/.profile
+cp -f profile ~/.bash_profile
 cp -f gitconfig ~/.gitconfig
 
 if cp -R ./tmux/* ~/.tmux; then
@@ -114,6 +117,13 @@ else
 	mkdir ~/bin
 	cp -R ./bin/* ~/bin
 	echo 'bin scripts directory rebuilt'
+fi
+
+if [[ ! -d ~/.vim/bundle ]]; then
+	#install pathogen
+	mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+	echo 'pathogen.vim plugin manager installed'
 fi
 
 #copy vim plugins to ~/.vim/bundle
