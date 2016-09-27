@@ -73,7 +73,6 @@ set magic
 
 " --- tabs
 set tabstop=2 " 1 tab = 2 spaces
-set shiftwidth=2 
 set smartindent 
 set smarttab
 set report=5 " set largest size of changes reported on status line
@@ -188,22 +187,6 @@ vmap r "_dP
 nnoremap <leader>y "+yy
 vnoremap <leader>y "+y
 
-" Coldfusion-specific options
-au FileType cf call FileTypeCF()
-function! FileTypeCF()
-call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
-setlocal noexpandtab ignorecase
-endfunction
-
-au FileType javascript setlocal noexpandtab
-
-" Python-specific options
-au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
-
-" Haxe-specific options
-au BufNewFile,BufRead *.hx set filetype=haxe
-au FileType haxe setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
-
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
 if len(getline('.')) == 0
@@ -225,14 +208,14 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
 let g:ctrlp_custom_ignore = {
-\     'dir': '\v[\/](\.(git|hg)$|ccss[\/])',
+\     'dir': '\v[\/](\.(git|hg)$|ccss[\/]|node_modules[\/])',
 \     'file': '\v\.(pyc|o|hi|orig)$'
 \  }
 " Caching
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_cache_dir = $XDG_CACHE_HOME.'/vim/ctrlp/'
-let g:ctrlp_max_depth = 15
+let g:ctrlp_max_depth = 40
 " Keymap
 let g:ctrlp_prompt_mappings = {
 \     'AcceptSelection("v")': ['<C-Enter>']
