@@ -73,6 +73,7 @@ set magic
 
 " --- tabs
 set tabstop=2 " 1 tab = 2 spaces
+set shiftwidth=2 
 set smartindent 
 set smarttab
 set report=5 " set largest size of changes reported on status line
@@ -186,6 +187,22 @@ vmap r "_dP
 " --- yank into system clipboard
 nnoremap <leader>y "+yy
 vnoremap <leader>y "+y
+
+" Coldfusion-specific options
+au FileType cf call FileTypeCF()
+function! FileTypeCF()
+call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
+setlocal noexpandtab ignorecase
+endfunction
+
+au FileType javascript setlocal noexpandtab
+
+" Python-specific options
+au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+
+" Haxe-specific options
+au BufNewFile,BufRead *.hx set filetype=haxe
+au FileType haxe setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
