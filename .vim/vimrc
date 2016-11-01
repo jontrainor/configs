@@ -161,7 +161,7 @@ nmap <leader>L  mQgewvu`Q
 " map <Leader>u :diffupdate<CR>
 
 " --- explorer mode settings
-nmap <leader>e :Lexplore<cr>
+nmap <leader>e :Lexplore<CR>:vertical res 30<CR>
 let g:netrw_liststyle=3
 
 " skip python selenium tests
@@ -226,7 +226,7 @@ let g:ctrlp_cmd = "CtrlPBuffer"
 " Custom ignores
 let g:ctrlp_custom_ignore = {
 \     'dir': '\v[\/](\.(git|hg)$|ccss[\/]|node_modules[\/])',
-\     'file': '\v\.(pyc|o|hi|orig)$'
+\     'file': '\v\.(pyc|o|hi|orig|bundle\.js)$'
 \  }
 " Caching
 let g:ctrlp_use_caching = 1
