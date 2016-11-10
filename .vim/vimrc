@@ -8,6 +8,10 @@ set shell=/bin/bash
 filetype plugin on
 filetype indent on
 
+" --- turn off eof new line
+set binary
+set noeol
+
 " --- set to auto read when a file is changed outside of vim
 set autoread
 
@@ -313,7 +317,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
-let g:syntastic_javascript_checkers = ["jshint"]
+let g:syntastic_javascript_checkers = ["eslint"]
 let g:syntastic_python_checkers = ["pylint"]
 let g:syntastic_scss_checkers = ["scss_lint"]
 let g:syntastic_c#_checkers = ["mcs"]

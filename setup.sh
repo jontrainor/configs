@@ -50,6 +50,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		npm install -g jshint
 	fi
 
+	if ! hash eslint 2>/dev/null; then
+		npm install -g eslint
+		npm install -g babel-eslint
+		npm install -g eslint-plugin-react
+	fi
+
 	if ! hash pylint 2>/dev/null; then
 		pip install pylint
 	fi
