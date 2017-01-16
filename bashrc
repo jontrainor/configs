@@ -132,4 +132,8 @@ export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
 
+# nvm settings
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
 export LANG=en_US.UTF-8

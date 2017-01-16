@@ -132,6 +132,9 @@ set undoreload=10000
 
 " --- gundo.vim settings
 nnoremap <F5> :GundoToggle<CR>
+if has('python3')
+	let g:gundo_prefer_python3 = 1
+endif
 
 " --- remappings
 map K :<BS>
@@ -234,7 +237,7 @@ let g:ctrlp_custom_ignore = {
 \  }
 " Caching
 let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $XDG_CACHE_HOME.'/vim/ctrlp/'
 let g:ctrlp_max_depth = 40
 " Keymap
@@ -246,8 +249,21 @@ nnoremap <Leader>o :CtrlP<CR>
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_max = 50
 " Search Behavior
-let g:ctrlp_lazy_update = 500 " ms
+let g:ctrlp_lazy_update = 350 " ms
 let g:ctrlp_working_path_mode = 'ra'
+
+" use ag if available
+if executable('ag')
+	set grepprg=ag\ --nogroup\ --nocolor
+	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+endif
+
+" --- ctrlp-py-matcher
+if !has('python')
+	echo 'ctrlp-py-matcher requires +python'
+else
+	let g:ctrlp_match_func = {'match': 'pymatcher#PyMatch'}
+endif
 
 " --- colorscheme
 set t_Co=256
@@ -255,8 +271,19 @@ let g:solarized_termcolors=256
 set background=dark
 colorscheme solarized
 
-" --- Show extra whitespace
-set list
+" --- Show whitespace
+let g:trainor_whitespace_visible = 0
+set nolist
+function! ToggleWhitespace()
+	if g:trainor_whitespace_visible
+		set nolist
+		let g:trainor_whitespace_visible = 0
+	else
+		set list
+		let g:trainor_whitespace_visible = 1
+	endif
+endfunction
+nnoremap <Leader>W :call ToggleWhitespace()<CR>
 set listchars=tab:⇨\ ,trail:.,space:.,eol:¬,extends:>,precedes:<
 " colors based off of solarized dark
 hi SpecialKey cterm=NONE ctermfg=236 ctermbg=234
