@@ -272,19 +272,8 @@ set background=dark
 colorscheme solarized
 
 " --- Show whitespace
-let g:trainor_whitespace_visible = 0
-set nolist
-function! ToggleWhitespace()
-	if g:trainor_whitespace_visible
-		set nolist
-		let g:trainor_whitespace_visible = 0
-	else
-		set list
-		let g:trainor_whitespace_visible = 1
-	endif
-endfunction
-nnoremap <Leader>W :call ToggleWhitespace()<CR>
-set listchars=tab:⇨\ ,trail:.,space:.,eol:¬,extends:>,precedes:<
+set list
+set listchars=tab:⇨\ ,trail:.,eol:¬,extends:>,precedes:<
 " colors based off of solarized dark
 hi SpecialKey cterm=NONE ctermfg=236 ctermbg=234
 hi NonText cterm=NONE ctermfg=236 ctermbg=234
