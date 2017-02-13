@@ -11,7 +11,7 @@ PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\]\n$ "
 
 # personal aliases
 alias tmux="tmux -2"
-alias nosetests="nosetests --exe"
+alias nosetests="nosetests -sv --exe"
 alias ls="ls -G"
 alias ll="ls -FGlAhp"
 alias la="ls -a"

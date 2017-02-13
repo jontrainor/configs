@@ -91,6 +91,7 @@ cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
 cp -f profile ~/.bash_profile
 cp -f gitconfig ~/.gitconfig
+cp -f vimpdbrc ~/.vimpdbrc
 
 if cp -R ./tmux/* ~/.tmux; then
 	echo 'tmux directory copied'
