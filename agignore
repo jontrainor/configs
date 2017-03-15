@@ -9,7 +9,7 @@ env/
 node_modules/
 
 /* filetypes */
-*.orig
+*.*.orig
 *.pyc
 *.log
 *.bundle.js
