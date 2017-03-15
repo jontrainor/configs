@@ -13,6 +13,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	brew update
 
+	# install brew autocomplete
+	if ! brew ls --versions bash-completion >/dev/null; then
+		brew install bash-completion
+		brew tap homebrew/completions
+	fi
+
 	# install macvim
 	if ! hash mvim 2>/dev/null; then
 		brew install macvim --override-system-vim
@@ -92,6 +98,7 @@ cp -f inputrc ~/.inputrc
 cp -f profile ~/.bash_profile
 cp -f gitconfig ~/.gitconfig
 cp -f vimpdbrc ~/.vimpdbrc
+cp -f agignore ~/.agignore
 
 if cp -R ./tmux/* ~/.tmux; then
 	echo 'tmux directory copied'

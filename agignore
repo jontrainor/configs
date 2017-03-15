@@ -1,0 +1,18 @@
+syntax: glob
+/* directories */
+.git/
+.hg/
+.svn/
+.sass-cache/
+ccss/
+env/
+node_modules/
+
+/* filetypes */
+*.orig
+*.pyc
+*.log
+*.bundle.js
+
+/* files */
+.DS_Store

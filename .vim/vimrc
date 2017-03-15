@@ -1,6 +1,9 @@
 scriptencoding utf-8
 set encoding=utf-8
 
+" --- set eof and eol onpeak standard
+set fileformats+=dos
+
 " --- set shell
 set shell=/bin/bash
 
@@ -33,8 +36,8 @@ nmap <leader>w :w!<cr>
 " --- delete file and remove from buffer
 nmap <leader>rm :call delete(expand('%')) \| bdelete!<cr>
 
-" --- reload vimrc settings
-nmap <leader>r :source ~/.vimrc<cr>
+" --- reload vimrc settings and clear ctrl-p cache
+nmap <leader>r :source ~/.vimrc<cr>:ClearAllCtrlPCaches<cr>
 
 " --- not completely VI compatible
 set nocompatible
@@ -121,6 +124,9 @@ set mouse=a
 " --- show status line and command line
 set ls=2
 
+" --- save original pwd
+let g:trainororiginalpwd=getcwd()
+
 " --- set session directory
 let g:session_dir = "~/.vim/sessions/"
 
@@ -167,9 +173,13 @@ nmap <leader>L  mQgewvu`Q
 " map <Leader>P :diffput<CR>
 " map <Leader>u :diffupdate<CR>
 
-" --- explorer mode settings
-nmap <leader>e :Lexplore<CR>:vertical res 30<CR>
-let g:netrw_liststyle=3
+" --- explorer mode setting
+" set current working directory for window then open netrw
+nmap <leader>e :lcd %:p:h<CR>:Lexplore<CR>:vertical res 30<CR>
+let g:netrw_liststyle=0
+
+" --- vim-vinegar settings
+autocmd FileType netrw setl bufhidden=wipe
 
 " skip python selenium tests
 nnoremap <leader>gp gg:%s/#@unittest/@unittest/g
@@ -205,11 +215,11 @@ endfunction
 au FileType javascript setlocal noexpandtab
 
 " Python-specific options
-au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+au FileType python setlocal expandtab shiftwidth=4 tabstop=4 
 
 " Haxe-specific options
 au BufNewFile,BufRead *.hx set filetype=haxe
-au FileType haxe setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+au FileType haxe setlocal expandtab shiftwidth=4 tabstop=4
 
 "smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
@@ -226,25 +236,26 @@ runtime macros/matchit.vim
 
 " --- ctrlp settings
 let g:ctrlp_prompt_mappings = {
-	\ 'ToggleType(1)':        ['<c-f>', '<c-up>', ';']
+	\ 'ToggleType(1)': ['<c-f>', '<c-up>', ';']
 	\ }
 
 let g:ctrlp_cmd = "CtrlPBuffer"
+
 " Custom ignores
-let g:ctrlp_custom_ignore = {
-\     'dir': '\v[\/](\.(git|hg)$|ccss[\/]|node_modules[\/])',
-\     'file': '\v\.(pyc|o|hi|orig|bundle\.js)$'
-\  }
+	" setting ctrlp_user_command disables some options like ctrlp_custom_ignore
+let g:ctrlp_custom_ignore = '\v[\/](\.git|\.hg|\.svn|\.sass-cache|ccss|node_modules)$|\v\.(pyc|orig|bundle\.js)$'
+
 " Caching
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_cache_dir = $XDG_CACHE_HOME.'/vim/ctrlp/'
 let g:ctrlp_max_depth = 40
+
 " Keymap
 let g:ctrlp_prompt_mappings = {
 \     'AcceptSelection("v")': ['<C-Enter>']
 \  }
-nnoremap <Leader>o :CtrlP<CR>
+
 " MRU
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_max = 50
@@ -255,7 +266,8 @@ let g:ctrlp_working_path_mode = 'ra'
 " use ag if available
 if executable('ag')
 	set grepprg=ag\ --nogroup\ --nocolor
-	let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --ignore ''.git'' --ignore ''.DS_Store'' --ignore ''node_modules'' --hidden -g ""'
+	" setting this disables some options like ctrlp_custom_ignore
+	let g:ctrlp_user_command = 'ag %s -l -U --nocolor --hidden -g ""'
 endif
 
 " --- ctrlp-py-matcher
@@ -285,9 +297,13 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " --- ack.vim settings
 cabbrev ack Ack
-nnoremap <Leader>s :Ack --ignore-file=ext:orig -i
-vnoremap <Leader>s y:Ack --ignore-file=ext:orig -i<Space><C-r>"
-let g:ack_use_dispatch=1 " requires vim-dispatch
+nnoremap <Leader>s :lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack -i<Space>
+vnoremap <Leader>s y:lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack -i<Space><C-r>"
+let g:ack_autofold_results=1
+
+if executable('ag')
+	let g:ackprg = 'ag --vimgrep'
+endif
 
 " --- vim-fugitive
 nnoremap <F12> :Gblame<CR>
@@ -346,4 +362,7 @@ cnoreabbrev deactivate VirtualEnvDeactivate
 " --- vim-nose settings
 cnoreabbrev rt RunTest
 cnoreabbrev rt! RunTests!
+
+" --- vim-commentary settings
+autocmd FileType dosini setlocal commentstring=#\ %s
 
