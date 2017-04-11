@@ -45,7 +45,7 @@ alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
 alias sshdevtest="ssh -p 2223 onpeakdev@127.0.0.1"
 
 function vimgit() {
-	vim $(git diff --name-only)
+	mvim -v $(git diff --name-only)
 }
 
 export -f vimgit
