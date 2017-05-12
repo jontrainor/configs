@@ -9,7 +9,6 @@ set shell=/bin/bash
 
 " --- enable filetype plugins
 filetype plugin on
-filetype indent on
 
 " --- turn off eof new line
 set binary
@@ -78,9 +77,6 @@ set cmdheight=2
 " --- enable regular expressions
 set magic
 
-" --- tabs
-set shiftwidth=2 
-set softtabstop=2 
 set report=5 " set largest size of changes reported on status line
 
 " --- buffer is hidden when abandoned
@@ -216,16 +212,6 @@ au FileType python setlocal expandtab shiftwidth=4 tabstop=4
 " Haxe-specific options
 au BufNewFile,BufRead *.hx set filetype=haxe
 au FileType haxe setlocal expandtab shiftwidth=4 tabstop=4
-
-"smart indent when entering insert mode with i on empty lines
-function! IndentWithI()
-if len(getline('.')) == 0
-	return "\"_ddO"
-else
-	return "i"
-endif
-endfunction
-nnoremap <expr> i IndentWithI()
 
 " --- turn matchit.vim on
 runtime macros/matchit.vim
