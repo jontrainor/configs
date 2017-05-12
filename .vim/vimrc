@@ -79,10 +79,8 @@ set cmdheight=2
 set magic
 
 " --- tabs
-set tabstop=2 " 1 tab = 2 spaces
 set shiftwidth=2 
-set smartindent 
-set smarttab
+set softtabstop=2 
 set report=5 " set largest size of changes reported on status line
 
 " --- buffer is hidden when abandoned

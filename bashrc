@@ -22,7 +22,6 @@ alias lla="ls -la"
 alias serve="python -m SimpleHTTPServer 8000"
 alias com="cd ~/projects/compass"
 alias rtail-server="rtail-server --web-port 8889"
-# alias vimgit="vim $(git diff --name-only)"
 alias reload="source ~/.bash_profile"
 
 # osx
@@ -47,14 +46,14 @@ alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
 alias sshdevtest="ssh -p 2223 onpeakdev@127.0.0.1"
 
 function vimgit() {
-	mvim -v $(git diff --name-only)
+	mvim -v $(git ls-files --modified --others --exclude-standard)
 }
 
 export -f vimgit
 
 # set up npm autocomplete if npm is installed
 if hash npm 2>/dev/null; then
-	npm completion
+	npm completion >/dev/null
 fi
 
 # onpeak test helpers
