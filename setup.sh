@@ -25,6 +25,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew linkapps
 	fi
 
+	# install node
+	if ! hash node 2>/dev/null; then
+		brew install node
+	fi
+
 	# install ack for ack.vim plugin
 	if ! hash ack 2>/dev/null; then
 		brew install ack

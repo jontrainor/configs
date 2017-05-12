@@ -1,12 +1,14 @@
-# prepend to PATH
+# prepend ~/bin scripts to PATH
 PATH=$HOME/bin:$PATH
 
-# append to PATH
+# append global npm packages to PATH
 PATH=$PATH:/usr/local/lib/node_modules
 
 export PATH
 
 # custom prompt
+# username@computername:path (git branch)
+# $ 
 PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\]\n$ "
 
 # personal aliases
@@ -49,6 +51,11 @@ function vimgit() {
 }
 
 export -f vimgit
+
+# set up npm autocomplete if npm is installed
+if hash npm 2>/dev/null; then
+	npm completion
+fi
 
 # onpeak test helpers
 # ------------------------------------------------
@@ -157,7 +164,10 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # nvm settings
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+# load nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+# nvm autocomplete
+[[ -r $NVM_DIR/bash_completion ]] && . $NVM_DIR/bash_completion
 
 export LANG=en_US.UTF-8
 # ------------------------------------------------

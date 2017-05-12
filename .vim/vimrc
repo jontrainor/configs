@@ -212,8 +212,6 @@ call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
 setlocal noexpandtab ignorecase
 endfunction
 
-au FileType javascript setlocal noexpandtab
-
 " Python-specific options
 au FileType python setlocal expandtab shiftwidth=4 tabstop=4 
 
@@ -297,8 +295,8 @@ let g:airline#extensions#virtualenv#enabled = 1
 
 " --- ack.vim settings
 cabbrev ack Ack
-nnoremap <Leader>s :lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack -i<Space>
-vnoremap <Leader>s y:lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack -i<Space><C-r>"
+nnoremap <Leader>s :lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack! -i<Space>
+vnoremap <Leader>s y:lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack! -i<Space><C-r>"
 let g:ack_autofold_results=1
 
 if executable('ag')
