@@ -169,7 +169,7 @@ nmap <leader>L  mQgewvu`Q
 
 " --- explorer mode setting
 " set current working directory for window then open netrw
-nmap <leader>e :lcd %:p:h<CR>:Lexplore<CR>:vertical res 30<CR>
+nmap <leader>e :lcd %:p:h<CR>:Lexplore<CR>:vertical res 30<CR>:lcd <C-r>=g:trainororiginalpwd<CR><CR>
 let g:netrw_liststyle=0
 
 " --- vim-vinegar settings
@@ -198,6 +198,8 @@ vmap r "_dP
 " --- yank into system clipboard
 nnoremap <leader>y "+yy
 vnoremap <leader>y "+y
+
+let tabstop=4
 
 " Coldfusion-specific options
 au FileType cf call FileTypeCF()
@@ -348,3 +350,5 @@ cnoreabbrev rt! RunTests!
 " --- vim-commentary settings
 autocmd FileType dosini setlocal commentstring=#\ %s
 
+" --- vim-closetag settings
+let g:closetag_filenames = "*.html, *.jsx, *.xml"
