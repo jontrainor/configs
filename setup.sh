@@ -25,6 +25,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew linkapps
 	fi
 
+	# install tmux
+	if ! hash tmux 2>/dev/null; then
+		brew install tmux
+	fi
+
 	# install node
 	if ! hash node 2>/dev/null; then
 		brew install node
@@ -33,13 +38,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# install ack for ack.vim plugin
 	if ! hash ack 2>/dev/null; then
 		brew install ack
-	fi
-
-	# install matcher for ctrlp vim plugin
-	if ! hash matcher 2>/dev/null; then
-		cd ./.vim/bundle/matcher-ctrlp/
-		make
-		make install
 	fi
 
 	# install vimpdb for debugging python
