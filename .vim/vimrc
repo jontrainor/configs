@@ -131,7 +131,7 @@ set undolevels=1000
 set undoreload=10000
 
 " --- gundo.vim settings
-nnoremap <F5> :GundoToggle<CR>
+nnoremap <Leader>u :GundoToggle<CR>
 if has('python3')
 	let g:gundo_prefer_python3 = 1
 endif

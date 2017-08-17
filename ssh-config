@@ -3,7 +3,5 @@ ControlPath /tmp/ssh_mux_%h_%p_%r
 ControlPersist 4h
 GSSAPIAuthentication no
 
-Host github.com
-	HostName github.com
-	User jontrainor
-	IdentityFile ~/.ssh/id_rsa_github
+Host *
+	UseKeychain yes
