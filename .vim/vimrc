@@ -290,7 +290,7 @@ if executable('ag')
 endif
 
 " --- vim-fugitive
-nnoremap <F12> :Gblame<CR>
+nnoremap <Leader>b :Gblame<CR>
 
 " --- vim-gitgutter settings
 let g:gitgutter_realtime = 0
