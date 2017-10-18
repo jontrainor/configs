@@ -127,3 +127,6 @@
 [submodule ".vim/bundle/vim-closetag"]
 	path = .vim/bundle/vim-closetag
 	url = https://github.com/alvan/vim-closetag.git
+[submodule ".vim/bundle/ctrlp_bdelete.vim"]
+	path = .vim/bundle/ctrlp_bdelete.vim
+	url = https://github.com/d11wtq/ctrlp_bdelete.vim.git
