@@ -130,3 +130,15 @@
 [submodule ".vim/bundle/ctrlp_bdelete.vim"]
 	path = .vim/bundle/ctrlp_bdelete.vim
 	url = https://github.com/d11wtq/ctrlp_bdelete.vim.git
+[submodule ".vim/bundle/fzf.vim"]
+	path = .vim/bundle/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule ".vim/bundle/vim-javascript-syntax"]
+	path = .vim/bundle/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax.git
+[submodule ".vim/bundle/javascript-libraries-syntax.vim"]
+	path = .vim/bundle/javascript-libraries-syntax.vim
+	url = https://github.com/othree/javascript-libraries-syntax.vim.git
+[submodule ".vim/bundle/syntastic-local-eslint.vim"]
+	path = .vim/bundle/syntastic-local-eslint.vim
+	url = https://github.com/mtscout6/syntastic-local-eslint.vim.git
