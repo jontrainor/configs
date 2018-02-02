@@ -40,6 +40,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install ack
 	fi
 
+	# install ag for searching
+	if ! hash ag 2>/dev/null; then
+		brew install the_silver_searcher
+	fi
+
 	# install vimpdb for debugging python
 	pip install vimpdb
 

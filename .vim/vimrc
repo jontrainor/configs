@@ -220,6 +220,9 @@ runtime macros/matchit.vim
 
 " --- fzf settings
 set rtp+=/usr/local/opt/fzf
+if executable('ag')
+	let $FZF_DEFAULT_COMMAND='ag -g ""'
+endif
 nnoremap <Leader>f :FZF<CR>
 
 " --- ctrlp settings
