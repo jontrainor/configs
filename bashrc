@@ -157,12 +157,13 @@ alias cbhs="cat $HISTFILE | tail -n 1 | cb"
 alias tmuxcopy="tmux saveb -|pbcopy"
 
 # virtualenvwrapper settings
-export WORKON_HOME=$HOME/.virtualenvs
+# export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
 
 # nvm settings
 export NVM_DIR="$HOME/.nvm"
+. $(brew --prefix nvm)/nvm.sh
 # load nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # nvm autocomplete

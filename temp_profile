@@ -1,0 +1,3 @@
+export NPM_TOKEN=62331821-0cda-4630-a3e4-610e35fb2fee
+export PATH="/user/local/bin:$PATH"
+source ~/.bashrc

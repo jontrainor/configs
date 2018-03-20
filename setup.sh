@@ -13,15 +13,19 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	brew update
 
+	# install python
+	if ! hash python3 2>/dev/null; then
+		brew install python
+	fi
+
 	# install brew autocomplete
 	if ! brew ls --versions bash-completion >/dev/null; then
 		brew install bash-completion
-		brew tap homebrew/completions
 	fi
 
 	# install macvim
 	if ! hash mvim 2>/dev/null; then
-		brew install macvim --override-system-vim
+		brew install macvim --with-override-system-vim
 		brew linkapps
 	fi
 
@@ -45,23 +49,34 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install the_silver_searcher
 	fi
 
-	# install vimpdb for debugging python
-	pip install vimpdb
-
-	# install virtualenvwrapper
-	pip install virtualenvwrapper
-	if [[ ! -d ~/.virtualenvs ]]; then
-		mkdir ~/.virtualenvs
+	# install ripgrep for improved searching with ctrlp
+	if ! hash rg 2>/dev/null; then
+		brew install ripgrep
 	fi
+
+	# install fzf for fuzzy file searching
+	if ! hash fzf 2>/dev/null; then
+		brew install fzf
+	fi
+
+	# install kdiff3 for 3 way merging
+	if ! hash kdiff3 2>/dev/null; then
+		brew tap caskroom/cask
+		brew cask install kdiff3
+	fi
+
+	# # install vimpdb for debugging python
+	# pip install vimpdb
+
+	# # install virtualenvwrapper
+	# pip install virtualenvwrapper
+	# if [[ ! -d ~/.virtualenvs ]]; then
+	# 	mkdir ~/.virtualenvs
+	# fi
 
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
 		brew install reattach-to-user-namespace
-	fi
-
-	# install linters
-	if ! hash jshint 2>/dev/null; then
-		npm install -g jshint
 	fi
 
 	if ! hash eslint 2>/dev/null; then
@@ -71,28 +86,22 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 
 	if ! hash pylint 2>/dev/null; then
-		pip install pylint
+		pip3 install pylint
 	fi
 
 	if ! hash scss-lint 2>/dev/null; then
 		sudo gem install scss-lint
 
 	fi
-
-	if ! hash cflint 2>/dev/null; then
-		brew install maven
-		cd ~
-		git clone https://github.com/cflint/CFLint.git
-		cd CFLint
-		mvn clean install -D assembleDirectory=/usr/local
-		cd $cwd
-	fi
 fi
+
+# trunk club specific
+# add trunk club private npm repo token
+cat ~/.tc-npm-token > temp_profile && cat profile >> temp_profile
 
 #initialize vim & tmux plugin submodules
 git submodule init
 git submodule update
-
 
 #copy configs to home directory
 cp -f vimrc ~/.vimrc
@@ -103,7 +112,7 @@ cp -f .vim/vimrc ~/.vim/vimrc
 cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
-cp -f profile ~/.bash_profile
+cp -f temp_profile ~/.bash_profile
 cp -f gitconfig ~/.gitconfig
 cp -f vimpdbrc ~/.vimpdbrc
 cp -f agignore ~/.agignore
