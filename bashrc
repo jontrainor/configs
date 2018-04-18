@@ -4,7 +4,8 @@ PATH=$HOME/bin:$PATH
 # append global npm packages to PATH
 PATH=$PATH:/usr/local/lib/node_modules
 
-export PATH
+# brew settings
+export PATH="/usr/local/sbin:$PATH"
 
 # custom prompt
 # username@computername:path (git branch)
@@ -160,6 +161,12 @@ alias tmuxcopy="tmux saveb -|pbcopy"
 # export WORKON_HOME=$HOME/.virtualenvs
 # export PROJECT_HOME=$HOME/Devel
 # source /usr/local/bin/virtualenvwrapper.sh
+
+# docker-machine settings
+eval "$(docker-machine env)"
+
+# rbenv settings
+eval "$(rbenv init -)"
 
 # nvm settings
 export NVM_DIR="$HOME/.nvm"

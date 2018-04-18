@@ -324,6 +324,9 @@ let g:used_javascript_libs = 'underscore,jquery,react,requirejs,chai'
 " --- vim-jsx settings
 let g:jsx_ext_required = 0
 
+" --- vim-flow settings
+let g:flow#autoclose = 1
+
 " --- clever-f.vim settings
 let g:clever_f_chars_match_any_signs = ';' 
 

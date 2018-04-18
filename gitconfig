@@ -20,7 +20,6 @@
 
 [user] 
 	name = Jon Trainor
-	email = jon.trainor@gmail.com
 [alias]
 	st = status
 	co = checkout
@@ -28,6 +27,7 @@
 	up = rebase
 	ci = commit
 	timeout = stash apply stash^{/timeout}
+	pushorigin = push --set-upstream origin
 
 	precommit = diff --cached --diff-algorithm=minimal -w
 	unstage = reset -q HEAD --

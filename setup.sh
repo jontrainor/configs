@@ -18,6 +18,15 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install python
 	fi
 
+	# install virtualenv
+	# pip3 install virtualenv
+	# pip3 install virtualenvwrapper
+	# if [[ ! -d ~/.virtualenvs ]]; then
+	# 	mkdir ~/.virtualenvs
+	# 	mkvirtualenv home
+	# 	workon home
+	# fi
+
 	# install brew autocomplete
 	if ! brew ls --versions bash-completion >/dev/null; then
 		brew install bash-completion
@@ -65,14 +74,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew cask install kdiff3
 	fi
 
-	# # install vimpdb for debugging python
+	# install vimpdb for debugging python
 	# pip install vimpdb
-
-	# # install virtualenvwrapper
-	# pip install virtualenvwrapper
-	# if [[ ! -d ~/.virtualenvs ]]; then
-	# 	mkdir ~/.virtualenvs
-	# fi
 
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
