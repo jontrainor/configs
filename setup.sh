@@ -94,7 +94,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	if ! hash scss-lint 2>/dev/null; then
 		sudo gem install scss-lint
-
 	fi
 fi
 
@@ -117,6 +116,7 @@ cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
 cp -f temp_profile ~/.bash_profile
 cp -f gitconfig ~/.gitconfig
+ls ~/localgitconfig.sh && ~/localgitconfig.sh
 cp -f vimpdbrc ~/.vimpdbrc
 cp -f agignore ~/.agignore
 
@@ -133,6 +133,11 @@ if [ ! -d ~/.ssh ]; then
 	mkdir ~/.ssh
 fi
 cp -f ssh-config ~/.ssh/config
+
+cd ~/.ssh
+for sshfile in *; do
+	ssh-add -K $sshfile
+done
 
 if cp -R ./git/* ~/git.d; then
 	echo 'git directory copied'

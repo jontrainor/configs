@@ -201,6 +201,9 @@ vnoremap <leader>y "+y
 
 let tabstop=4
 
+" markdown options
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+
 " Coldfusion-specific options
 au FileType cf call FileTypeCF()
 function! FileTypeCF()

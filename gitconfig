@@ -18,8 +18,6 @@
     trustExitCode = true
     keepBackup = false
 
-[user] 
-	name = Jon Trainor
 [alias]
 	st = status
 	co = checkout
@@ -27,7 +25,7 @@
 	up = rebase
 	ci = commit
 	timeout = stash apply stash^{/timeout}
-	pushorigin = push --set-upstream origin
+	newbranch = origin HEAD
 
 	precommit = diff --cached --diff-algorithm=minimal -w
 	unstage = reset -q HEAD --
@@ -36,6 +34,7 @@
 	overwrite = reset --hard
 	strip = reset HEAD~1
 	amend = commit --amend
+	lastchange = rev-list -n 1 HEAD --
 	graph = log --graph -10 --branches --remotes --tags  --format=format:'%Cgreen%h %Creset• %<(75,trunc)%s (%cN, %cr) %Cred%d' --date-order
 
 # Thanks http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs for log graph aliases
