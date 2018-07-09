@@ -134,10 +134,12 @@ if [ ! -d ~/.ssh ]; then
 fi
 cp -f ssh-config ~/.ssh/config
 
+dir=$(pwd)
 cd ~/.ssh
 for sshfile in *; do
 	ssh-add -K $sshfile
 done
+cd $dir
 
 if cp -R ./git/* ~/git.d; then
 	echo 'git directory copied'
