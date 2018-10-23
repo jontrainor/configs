@@ -88,6 +88,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		npm install -g eslint-plugin-react
 	fi
 
+	if ! hash flow-vim-quickfix 2>/dev/null; then
+		npm install -g flow-vim-quickfix 2>/dev/null
+	fi
+
 	if ! hash pylint 2>/dev/null; then
 		pip3 install pylint
 	fi
@@ -115,6 +119,7 @@ cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
 cp -f temp_profile ~/.bash_profile
+rm temp_profile
 cp -f gitconfig ~/.gitconfig
 ls ~/localgitconfig.sh && ~/localgitconfig.sh
 cp -f vimpdbrc ~/.vimpdbrc
@@ -128,18 +133,6 @@ else
 	cp -R ./tmux/* ~/.tmux
 	echo 'tmux directory rebuilt'
 fi
-
-if [ ! -d ~/.ssh ]; then
-	mkdir ~/.ssh
-fi
-cp -f ssh-config ~/.ssh/config
-
-dir=$(pwd)
-cd ~/.ssh
-for sshfile in *; do
-	ssh-add -K $sshfile
-done
-cd $dir
 
 if cp -R ./git/* ~/git.d; then
 	echo 'git directory copied'

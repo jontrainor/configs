@@ -150,12 +150,6 @@ map <Leader>> :cnew<CR>
 " --- close buffer
 map <Leader>x :bd<CR>
 
-" --- word to uppercase/lowercase
-"  mQ sets the mark at the current cursor position and `Q sets the cursor to
-"  that position
-" nmap <leader>u mQviwU`Q
-" nmap <leader>l mQviwu`Q
-
 " --- first letter to uppercase/lowercase
 nmap <leader>U mQgewvU`Q
 nmap <leader>L  mQgewvu`Q
@@ -175,15 +169,9 @@ let g:netrw_liststyle=0
 " --- vim-vinegar settings
 autocmd FileType netrw setl bufhidden=wipe
 
-" skip python selenium tests
-nnoremap <leader>gp gg:%s/#@unittest/@unittest/g
-
 " javascript console log macro
 nnoremap <leader>cj oconsole.log();<esc>hi
 nnoremap <leader>dj odebugger;<esc>
-
-" coldfusion dump macro
-nnoremap <leader>cd o<cfdump abort="true" var="##"><esc>hhi
 
 " --- clear highlights
 nnoremap <leader><space> :noh<cr>
@@ -203,6 +191,7 @@ let tabstop=4
 
 " markdown options
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufNewFile,BufReadPost *.apib set filetype=markdown
 
 " Coldfusion-specific options
 au FileType cf call FileTypeCF()
@@ -253,6 +242,7 @@ let g:ctrlp_prompt_mappings = {
 " MRU
 let g:ctrlp_mruf_relative = 1
 let g:ctrlp_mruf_max = 50
+
 " Search Behavior
 let g:ctrlp_lazy_update = 350 " ms
 let g:ctrlp_working_path_mode = 'ra'
@@ -317,7 +307,7 @@ nnoremap <Leader>ll :Limelight!!0.5<CR>
 
 " --- vimpdb settings
 nnoremap <leader>pp oimport pprint; import vimpdb; pp=pprint.pprint; vimpdb.set_trace()<esc>
-        
+
 " --- vim-javascript settings
 let javascript_enable_domhtmlcss = 1
 

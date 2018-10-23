@@ -25,7 +25,7 @@
 	up = rebase
 	ci = commit
 	timeout = stash apply stash^{/timeout}
-	newbranch = origin HEAD
+	pushorigin = push --set-upstream origin
 
 	precommit = diff --cached --diff-algorithm=minimal -w
 	unstage = reset -q HEAD --
