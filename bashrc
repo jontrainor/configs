@@ -15,13 +15,11 @@ PS1="\u@\h:\w\[\e[35m\]\$(__git_ps1)\[\e[m\]\n$ "
 # personal aliases
 alias tmux="tmux -2"
 alias nosetests="nosetests -sv --exe"
-# alias nosetests_all = "nosetests -v --with-xunitmp --xunitmp-file=~/projects/test_results/{1/}_selenium_testresults.xml ~/projects/compass/dev/selenium_tests/{1}"
 alias ls="ls -G"
 alias ll="ls -FGlAhp"
 alias la="ls -a"
 alias lla="ls -la"
 alias serve="python -m SimpleHTTPServer 8000"
-alias com="cd ~/projects/compass"
 alias rtail-server="rtail-server --web-port 8889"
 alias reload="source ~/.bash_profile"
 
@@ -29,22 +27,15 @@ alias reload="source ~/.bash_profile"
 # flush dns cache
 alias dnsflush="sudo killall -HUP mDNSResponder"
 
-# cd () { builtin cd "$@"; ll; }
-alias cd..=' cd ../'
-alias ..='cd ../'
-alias ...='cd ../../'
-alias .3='cd ../../../'
-alias .4='cd ../../../../'
-alias .5='cd ../../../../../'
-alias .6='cd ../../../../../../'
-alias cdcompass="cd ~/projects/compass"
+cd () {
+    builtin cd "$@"
+    if [ -f .nvmrc ]; then
+	nvm use || nvm install
+    fi
+}
 
 # ll outputs in kb/mb/gb
 export BLOCKSIZE=1k
-
-# aliases for sshing to vms
-alias sshdev="ssh -p 2222 onpeakdev@127.0.0.1"
-alias sshdevtest="ssh -p 2223 onpeakdev@127.0.0.1"
 
 function vimgit() {
 	mvim -v $(git ls-files --modified --others --exclude-standard)
@@ -56,39 +47,6 @@ export -f vimgit
 if hash npm 2>/dev/null; then
 	npm completion >/dev/null
 fi
-
-# onpeak test helpers
-# ------------------------------------------------
-function onpeaktest() {
-	workon selenium
-	cd ~/projects/compass/dev/selenium_tests
-	# pip install -r ~/projects/compass/dev/selenium_tests/bootstrap.list --upgrade
-	# pip install nose_xunitmp
-
-	rm ~/projects/test_results/*
-	wget -O meeting_creator_output.html 'http://localhost:8080/arctic/tests/meetingcreation/meetingCreator.cfm?alias=ALL'
-	if [ $? -ne 0 ]; then
-			echo "Meeting creator failed for some reason, check 'meeting_creator_output.html'."
-			exit 1;
-	fi
-
-	XUNITDIR=/Users/jtrainor/projects/test_results
-	TESTCMD="nosetests -v --with-xunitmp --xunitmp-file=$XUNITDIR/{1/}_selenium_testresults.xml $(pwd)/{1}"
-	FILES=$(find arctic dashboard legacy -name 'test_*.py')
-	parallel --halt 1 --jobs 4 "$TESTCMD || $TESTCMD || $TESTCMD" ::: $FILES
-
- # O. Tange (2011): GNU Parallel - The Command-Line Power Tool,
- # ;login: The USENIX Magazine, February 2011:42-47.
-}
-export -f onpeaktest
-
-function onpeakjunit() {
-	# npm install junit-viewer -g
-	XUNITDIR=/Users/jtrainor/projects/test_results
-	junit-viewer --results=$XUNITDIR --minify=false --port=9010
-}
-export -f onpeakjunit
-# ------------------------------------------------
 
 # osx specific aliases
 if [[ "$OSTYPE" == "darwin"* ]]; then
