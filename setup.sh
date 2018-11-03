@@ -101,13 +101,18 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 fi
 
-# trunk club specific
-# add trunk club private npm repo token
-cat ~/.tc-npm-token > temp_profile && cat profile >> temp_profile
-
 #initialize vim & tmux plugin submodules
 git submodule init
 git submodule update
+
+# trunk club specific
+# add trunk club private npm repo token if one exists
+if cat ~/.tc-npm-token > temp_profile && cat profile >> temp_profile ; then
+	cp -f temp_profile ~/.bash_profile
+	rm temp_profile
+else
+	cp -f profile ~/.bash_profile
+fi
 
 #copy configs to home directory
 cp -f vimrc ~/.vimrc
@@ -118,8 +123,6 @@ cp -f .vim/vimrc ~/.vim/vimrc
 cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
 cp -f inputrc ~/.inputrc
-cp -f temp_profile ~/.bash_profile
-rm temp_profile
 cp -f gitconfig ~/.gitconfig
 ls ~/localgitconfig.sh && ~/localgitconfig.sh
 cp -f vimpdbrc ~/.vimpdbrc

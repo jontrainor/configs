@@ -120,12 +120,6 @@ alias tmuxcopy="tmux saveb -|pbcopy"
 # export PROJECT_HOME=$HOME/Devel
 # source /usr/local/bin/virtualenvwrapper.sh
 
-# docker-machine settings
-eval "$(docker-machine env)"
-
-# rbenv settings
-eval "$(rbenv init -)"
-
 # nvm settings
 export NVM_DIR="$HOME/.nvm"
 . $(brew --prefix nvm)/nvm.sh
@@ -186,3 +180,17 @@ _nosetests()
 complete -o nospace -F _nosetests nosetests
 # ------------------------------------------------
 
+
+# docker-machine settings
+if hash docker-machine 2>/dev/null; then
+    eval "$(docker-machine env)"
+fi
+
+# rbenv settings
+if hash rbenv 2>/dev/null; then
+    eval "$(rbenv init -)"
+fi
+
+if hash nvm 2>/dev/null && [ -f .nvmrc ]; then
+    nvm use || nvm install
+fi
