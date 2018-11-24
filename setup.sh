@@ -18,15 +18,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install python
 	fi
 
-	# install virtualenv
-	# pip3 install virtualenv
-	# pip3 install virtualenvwrapper
-	# if [[ ! -d ~/.virtualenvs ]]; then
-	# 	mkdir ~/.virtualenvs
-	# 	mkvirtualenv home
-	# 	workon home
-	# fi
-
 	# install brew autocomplete
 	if ! brew ls --versions bash-completion >/dev/null; then
 		brew install bash-completion
@@ -73,9 +64,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew tap caskroom/cask
 		brew cask install kdiff3
 	fi
-
-	# install vimpdb for debugging python
-	# pip install vimpdb
 
 	# fix tmux copy/paste
 	if ! hash reattach-to-user-namespace 2>/dev/null; then
@@ -153,25 +141,18 @@ else
 	echo 'bin scripts directory rebuilt'
 fi
 
-if [[ ! -d ~/.vim/bundle ]]; then
-	#install pathogen
-	mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-	echo 'pathogen.vim plugin manager installed'
-fi
-
-#copy vim plugins to ~/.vim/bundle
-if cp -R ./.vim/bundle/* ~/.vim/bundle; then
-	echo 'vim plugins directory copied'
-else
-	rm -rf ~/.vim/bundle
-	mkdir ~/.vim/bundle
-	cp -R ./.vim/bundle/* ~/.vim/bundle
-	echo 'vim plugins directory rebuilt'
+if [[ ! -f ~/.vim/autoload/plug.vim ]]; then
+	#install vim-plug
+	curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	echo 'vim-plug plugin manager installed'
 fi
 
 #create directories for vim sessions and undo
 cd ~/.vim
+if [ ! -d ~/.vim/plugged ]; then
+	mkdir plugged
+fi
+
 if [ ! -d ~/.vim/sessions ]; then
 	mkdir sessions
 fi

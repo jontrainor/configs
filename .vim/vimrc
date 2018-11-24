@@ -1,3 +1,82 @@
+" --- install vim.plug if it is not already installed
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" --- handled by vim-plug
+" syntax on
+
+call plug#begin('~/.vim/plugged')
+" --- search and file management
+" file search
+Plug 'junegunn/fzf.vim'
+" buffer manager
+Plug 'ctrlpvim/ctrlp.vim'
+" uses ack to search
+Plug 'mileszs/ack.vim'
+
+" --- extensions to default functionality
+" extra text objects
+Plug 'wellle/targets.vim'
+" '"surroundings"'
+Plug 'tpope/vim-surround'
+" extends f/F and t/T
+Plug 'rhysd/clever-f.vim'
+" extra mappings
+Plug 'tpope/vim-unimpaired'
+" extend netrw
+Plug 'tpope/vim-vinegar'
+
+" --- syntax and text completion
+Plug 'vim-syntastic/syntastic'
+"  javascript
+Plug 'pangloss/vim-javascript'
+Plug 'isRuslan/vim-es6'
+Plug 'jelera/vim-javascript-syntax'
+Plug 'mxw/vim-jsx'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'mtscout6/syntastic-local-eslint.vim'
+Plug 'flowtype/vim-flow'
+" haxe
+Plug 'MarcWeber/vim-haxe-syntax'
+" text complete with tab in insert mode
+Plug 'ervandew/supertab'
+" tab complete in search bar
+Plug 'vim-scripts/SearchComplete'
+
+" --- git
+Plug 'tpope/vim-fugitive'
+" show git diff in gutter
+Plug 'airblade/vim-gitgutter'
+
+" --- quality of life
+"  automatically set indent
+Plug 'tpope/vim-sleuth'
+" async dispatch commands
+Plug 'tpope/vim-dispatch'
+"  commenting helper
+Plug 'tpope/vim-commentary'
+" undo tree manager
+Plug 'sjl/gundo.vim'
+" highlight enclosing tags
+Plug 'Valloric/MatchTagAlways'
+" auto close html tags
+Plug 'alvan/vim-closetag'
+" visualize color hex codes
+Plug 'lilydjwg/colorizer'
+" expand selection in visual mode
+Plug 'terryma/vim-expand-region'
+
+" --- theme
+Plug 'micha/vim-colors-solarized'
+"  status bar
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()
+
 scriptencoding utf-8
 set encoding=utf-8
 
@@ -67,9 +146,6 @@ set incsearch " matches while typing
 set ignorecase " case insenstive searching
 set smartcase " if a search has an uppercase letter it is case senstive
 set hlsearch " highlight search
-
-" --- turn on syntax highlighting
-syntax on
 
 " --- height of command bar
 set cmdheight=2
@@ -193,13 +269,6 @@ let tabstop=4
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.apib set filetype=markdown
 
-" Coldfusion-specific options
-au FileType cf call FileTypeCF()
-function! FileTypeCF()
-call SyntaxRange#Include('<cfscript', '</cfscript>', 'cfscript')
-setlocal noexpandtab ignorecase
-endfunction
-
 " Python-specific options
 au FileType python setlocal expandtab shiftwidth=4 tabstop=4 
 
@@ -257,9 +326,6 @@ elseif executable('ag')
 	let g:ctrlp_user_command = 'ag %s -l -U --nocolor --hidden -g ""'
 endif
 
-" --- ctrlp_bdelete.vim
-call ctrlp_bdelete#init()
-
 " --- colorscheme
 set t_Co=256
 let g:solarized_termcolors=256
@@ -302,14 +368,12 @@ nnoremap <Leader>d :Dispatch
 vmap v <Plug>(expand_region_expand)
 vmap <C-v> <Plug>(expand_region_shrink)
 
-" --- limelight.vim settings
-nnoremap <Leader>ll :Limelight!!0.5<CR>
-
 " --- vimpdb settings
 nnoremap <leader>pp oimport pprint; import vimpdb; pp=pprint.pprint; vimpdb.set_trace()<esc>
 
 " --- vim-javascript settings
 let javascript_enable_domhtmlcss = 1
+let g:javascript_plugin_flow = 1
 
 " --- javascript-libraries-syntax.vim
 let g:used_javascript_libs = 'underscore,jquery,react,requirejs,chai'
