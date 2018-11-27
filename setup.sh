@@ -70,26 +70,20 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install reattach-to-user-namespace
 	fi
 
-	if ! hash eslint 2>/dev/null; then
-		npm install -g eslint
-		npm install -g babel-eslint
-		npm install -g eslint-plugin-react
+	# install language servers
+	# javascript flow
+	if ! hash flow-language-server 2>/dev/null; then
+		npm install -g flow-language-server
+	fi
+	
+	# ruby
+	if ! hash solargraph 2>/dev/null; then
+		gem install solargraph
 	fi
 
-	if ! hash flow-vim-quickfix 2>/dev/null; then
-		npm install -g flow-vim-quickfix 2>/dev/null
-	fi
-
-	if ! hash pylint 2>/dev/null; then
-		pip3 install pylint
-	fi
-
-	if ! hash scss-lint 2>/dev/null; then
-		sudo gem install scss-lint
-	fi
 fi
 
-#initialize vim & tmux plugin submodules
+# initialize tmux plugin submodules
 git submodule init
 git submodule update
 

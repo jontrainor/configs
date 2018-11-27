@@ -30,15 +30,16 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-vinegar'
 
 " --- syntax and text completion
-Plug 'vim-syntastic/syntastic'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 "  javascript
 Plug 'pangloss/vim-javascript'
 Plug 'isRuslan/vim-es6'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
-Plug 'mtscout6/syntastic-local-eslint.vim'
-Plug 'flowtype/vim-flow'
 " haxe
 Plug 'MarcWeber/vim-haxe-syntax'
 " text complete with tab in insert mode
@@ -213,7 +214,6 @@ if has('python3')
 endif
 
 " --- remappings
-map K :<BS>
 map <Leader>k <C-W>k
 map <Leader>j <C-W>j
 map <Leader>h <C-W>h
@@ -391,27 +391,6 @@ let g:clever_f_chars_match_any_signs = ';'
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
 
-" --- syntastic settings
-let g:syntastic_always_populate_loc_list = 1
-nnoremap <Leader>sy :SyntasticCheck<CR>:Errors<CR><C-W>j
-nnoremap <Leader>st :SyntasticToggleMode<CR>
-
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_javascript_checkers = ["eslint"]
-let g:syntastic_python_checkers = ["pylint"]
-let g:syntastic_scss_checkers = ["scss_lint"]
-let g:syntastic_c#_checkers = ["mcs"]
-let g:syntastic_cf_checkers = []
-
 " --- vim-virtualenv settings
 cnoreabbrev activate VirtualEnvActivate
 cnoreabbrev deactivate VirtualEnvDeactivate
@@ -425,3 +404,18 @@ autocmd FileType dosini setlocal commentstring=#\ %s
 
 " --- vim-closetag settings
 let g:closetag_filenames = "*.html, *.jsx, *.xml"
+
+" --- supertab settings
+let g:SuperTabDefaultCompletionType = 'context'
+
+" --- LanguageClient settings
+set hidden
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['flow-language-server', '--stdio', '--try-flow-bin'],
+    \ 'javascript.jsx': ['flow-language-server', '--stdio', '--try-flow-bin'],
+    \ 'ruby': ['solargraph', 'stdio']
+    \ }
+
+nnoremap <silent> K :call g:LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call g:LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call g:LanguageClient#textDocument_rename()<CR>
