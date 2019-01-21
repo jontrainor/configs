@@ -26,8 +26,8 @@ Plug 'tpope/vim-surround'
 Plug 'rhysd/clever-f.vim'
 " extra mappings
 Plug 'tpope/vim-unimpaired'
-" extend netrw
-Plug 'tpope/vim-vinegar'
+" file manager
+Plug 'mcchrish/nnn.vim'
 
 " --- syntax and text completion
 Plug 'autozimu/LanguageClient-neovim', {
@@ -237,14 +237,6 @@ nmap <leader>L  mQgewvu`Q
 " map <Leader>P :diffput<CR>
 " map <Leader>u :diffupdate<CR>
 
-" --- explorer mode setting
-" set current working directory for window then open netrw
-nmap <leader>e :lcd %:p:h<CR>:Lexplore<CR>:vertical res 30<CR>:lcd <C-r>=g:trainororiginalpwd<CR><CR>
-let g:netrw_liststyle=0
-
-" --- vim-vinegar settings
-autocmd FileType netrw setl bufhidden=wipe
-
 " javascript console log macro
 nnoremap <leader>cj oconsole.log();<esc>hi
 nnoremap <leader>dj odebugger;<esc>
@@ -419,3 +411,7 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> K :call g:LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call g:LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call g:LanguageClient#textDocument_rename()<CR>
+
+" --- nnn.vim settings
+let g:nnn#set_default_mappings = 0
+nnoremap <silent> <leader>e :NnnPicker '%:p:h'<CR>
