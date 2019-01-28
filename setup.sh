@@ -101,6 +101,7 @@ cp -f vimrc ~/.vimrc
 if [[ ! -d ~/.vim ]]; then
 	mkdir ~/.vim
 fi
+cp -f sshconfig ~/.ssh/config
 cp -f .vim/vimrc ~/.vim/vimrc
 cp -f tmux.conf ~/.tmux.conf
 cp -f bashrc ~/.bashrc
@@ -127,6 +128,10 @@ else
 	cp -R ./git/* ~/git.d
 	echo 'git directory rebuilt'
 fi
+
+#copy project files over where possible
+#tc 
+cp -f tc-customer-app-projections.json ~/projects/customer_app/.projections.json
 
 #copy scripts to ~/bin
 if cp -R ./bin/* ~/bin; then

@@ -16,6 +16,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'ctrlpvim/ctrlp.vim'
 " uses ack to search
 Plug 'mileszs/ack.vim'
+" allows switching between associated files
+Plug 'tpope/vim-projectionist'
 
 " --- extensions to default functionality
 " extra text objects
@@ -257,6 +259,25 @@ vnoremap <leader>y "+y
 
 let tabstop=4
 
+" tc specific javascript specific options
+function! JsIncludeExpr(file)
+  if (filereadable(expand(a:file)))
+    return a:file
+  else
+    if (a:file !~ '^\.\/')
+      let l:tmpFile=substitute(substitute(a:file,'^','src/', ''),'$','\.js','')
+      if (filereadable(expand(l:tmpFile)))
+	return l:tmpFile
+      endif
+    else
+      let l:tmpFile=a:file
+    endif
+    let l:fileWithIndex=substitute(substitute(l:tmpFile,'\.js$','',''),'$','/index.js','')
+    return l:fileWithIndex
+  endif
+endfunction
+set includeexpr=JsIncludeExpr(v:fname)
+
 " markdown options
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 autocmd BufNewFile,BufReadPost *.apib set filetype=markdown
@@ -364,7 +385,7 @@ vmap <C-v> <Plug>(expand_region_shrink)
 nnoremap <leader>pp oimport pprint; import vimpdb; pp=pprint.pprint; vimpdb.set_trace()<esc>
 
 " --- vim-javascript settings
-let javascript_enable_domhtmlcss = 1
+let g:javascript_enable_domhtmlcss = 1
 let g:javascript_plugin_flow = 1
 
 " --- javascript-libraries-syntax.vim
