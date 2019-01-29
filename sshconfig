@@ -4,12 +4,7 @@ Host *
 	IdentityFile ~/.ssh/id_rsa
 	IdentityFile ~/.ssh/id_rsa_personal
 
-Host github.com-home
+Host github.com-jontrainor
 	HostName github.com
 	User git
 	IdentityFile ~/.ssh/id_rsa_personal
-
-Host github.com-work
-	HostName github.com
-	User git
-	IdentityFile ~/.ssh/id_rsa

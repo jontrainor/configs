@@ -42,6 +42,8 @@ Plug 'isRuslan/vim-es6'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'moll/vim-node'
+Plug 'tomarrell/vim-npr'
 " haxe
 Plug 'MarcWeber/vim-haxe-syntax'
 " text complete with tab in insert mode
@@ -258,25 +260,6 @@ nnoremap <leader>y "+yy
 vnoremap <leader>y "+y
 
 let tabstop=4
-
-" tc specific javascript specific options
-function! JsIncludeExpr(file)
-  if (filereadable(expand(a:file)))
-    return a:file
-  else
-    if (a:file !~ '^\.\/')
-      let l:tmpFile=substitute(substitute(a:file,'^','src/', ''),'$','\.js','')
-      if (filereadable(expand(l:tmpFile)))
-	return l:tmpFile
-      endif
-    else
-      let l:tmpFile=a:file
-    endif
-    let l:fileWithIndex=substitute(substitute(l:tmpFile,'\.js$','',''),'$','/index.js','')
-    return l:fileWithIndex
-  endif
-endfunction
-set includeexpr=JsIncludeExpr(v:fname)
 
 " markdown options
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
