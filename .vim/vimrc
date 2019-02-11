@@ -80,6 +80,8 @@ Plug 'micha/vim-colors-solarized'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+Plug 'editorconfig/editorconfig-vim'
+
 call plug#end()
 
 scriptencoding utf-8
