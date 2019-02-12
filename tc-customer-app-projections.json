@@ -1,0 +1,11 @@
+{
+	"*.js": {
+		"alternate": "{}.spec.js",
+		"type": "source"
+	},
+	"*.spec.js": {
+		"alternate": "{}.js",
+		"type": "test"
+	},
+}
+
