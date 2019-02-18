@@ -3,6 +3,33 @@
 # save current working directory
 cwd=$(pwd)
 
+# trunk club specific
+# add trunk club private npm repo token if one exists
+if cat ~/.tc-npm-token > temp_profile && cat profile >> temp_profile ; then
+	cp -f temp_profile ~/.bash_profile
+	rm temp_profile
+else
+	cp -f profile ~/.bash_profile
+fi
+
+#copy configs to home directory
+cp -f vimrc ~/.vimrc
+if [[ ! -d ~/.vim ]]; then
+	mkdir ~/.vim
+fi
+if [[ ! -d ~/.ssh ]]; then
+	mkdir ~/.ssh
+fi
+cp -f sshconfig ~/.ssh/config
+cp -f .vim/vimrc ~/.vim/vimrc
+cp -f tmux.conf ~/.tmux.conf
+cp -f bashrc ~/.bashrc
+cp -f inputrc ~/.inputrc
+cp -f gitconfig ~/.gitconfig
+# ls ~/localgitconfig.sh && ~/localgitconfig.sh
+cp -f vimpdbrc ~/.vimpdbrc
+cp -f agignore ~/.agignore
+
 #if osx 
 if [[ "$OSTYPE" == "darwin"* ]]; then
 	# install brew
@@ -25,8 +52,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
 	# install macvim
 	if ! hash mvim 2>/dev/null; then
-		brew install macvim --with-override-system-vim
-		brew linkapps
+		brew install macvim
 	fi
 
 	# install tmux
@@ -37,6 +63,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# install node
 	if ! hash node 2>/dev/null; then
 		brew install node
+		curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+		source ~/.bashrc
 	fi
 
 	# install ack for ack.vim plugin
@@ -77,6 +105,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 	
 	# ruby
+	if ! hash rbenv 2>/dev/null; then
+		brew install rbenv
+		rbenv global 2.4.3
+		source ~/.bashrc
+	fi
 	if ! hash solargraph 2>/dev/null; then
 		gem install solargraph
 	fi
@@ -86,30 +119,6 @@ fi
 # initialize tmux plugin submodules
 git submodule init
 git submodule update
-
-# trunk club specific
-# add trunk club private npm repo token if one exists
-if cat ~/.tc-npm-token > temp_profile && cat profile >> temp_profile ; then
-	cp -f temp_profile ~/.bash_profile
-	rm temp_profile
-else
-	cp -f profile ~/.bash_profile
-fi
-
-#copy configs to home directory
-cp -f vimrc ~/.vimrc
-if [[ ! -d ~/.vim ]]; then
-	mkdir ~/.vim
-fi
-cp -f sshconfig ~/.ssh/config
-cp -f .vim/vimrc ~/.vim/vimrc
-cp -f tmux.conf ~/.tmux.conf
-cp -f bashrc ~/.bashrc
-cp -f inputrc ~/.inputrc
-cp -f gitconfig ~/.gitconfig
-ls ~/localgitconfig.sh && ~/localgitconfig.sh
-cp -f vimpdbrc ~/.vimpdbrc
-cp -f agignore ~/.agignore
 
 if cp -R ./tmux/* ~/.tmux; then
 	echo 'tmux directory copied'
