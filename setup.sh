@@ -63,6 +63,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	# install node
 	if ! hash node 2>/dev/null; then
 		brew install node
+	fi
+	if ! hash nvm 2>/dev/null; then
+		mkdir ~/.nvm
 		curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
 		source ~/.bashrc
 	fi

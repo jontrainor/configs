@@ -122,7 +122,6 @@ alias tmuxcopy="tmux saveb -|pbcopy"
 
 # nvm settings
 export NVM_DIR="$HOME/.nvm"
-. $(brew --prefix nvm)/nvm.sh
 # load nvm
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 # nvm autocomplete
