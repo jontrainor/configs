@@ -117,6 +117,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		gem install solargraph
 	fi
 
+	# install watchman
+	if ! hash watchman 2>/dev/null; then
+		brew install watchman
+	fi
+
+	# install nnn filepicker
+	if ! hash nnn 2>/dev/null; then
+		brew install nnn
+	fi
+
 fi
 
 # initialize tmux plugin submodules
