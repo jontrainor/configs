@@ -1,3 +1,6 @@
+[credential]
+    helper = osxkeychain
+    useHttpPath = true
 [difftool "kdiff3"]
     path = /Applications/kdiff3.app/Contents/MacOS/kdiff3
     trustExitCode = false
