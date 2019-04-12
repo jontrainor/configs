@@ -29,6 +29,7 @@
 	ci = commit
 	timeout = stash apply stash^{/timeout}
 	pushorigin = push --set-upstream origin
+	wip = commit -am "wip"
 
 	precommit = diff --cached --diff-algorithm=minimal -w
 	unstage = reset -q HEAD --
