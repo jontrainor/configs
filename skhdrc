@@ -1,0 +1,16 @@
+# prevent skhd from monitoring events for specific applications.
+
+.blacklist [
+   "kitty"
+   "terminal"
+   "iterm2"
+]
+
+ctrl - space : skhd -k escape
+
+ctrl - h : skhd -k left
+ctrl + alt - h : skhd -k "alt - left"
+ctrl - j : skhd -k down
+ctrl - k : skhd -k up
+ctrl - l : skhd -k right
+ctrl + alt - l : skhd -k "alt - right"

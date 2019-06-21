@@ -29,6 +29,7 @@ cp -f gitconfig ~/.gitconfig
 # ls ~/localgitconfig.sh && ~/localgitconfig.sh
 cp -f vimpdbrc ~/.vimpdbrc
 cp -f agignore ~/.agignore
+cp -f skhdrc ~/.skhdrc
 
 #if osx 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -39,6 +40,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 	fi
 
 	brew update
+
+	# install hotkey tool
+	if ! hash skhd 2>/dev/null; then
+		brew install koekeishiya/formulae/skhd
+		brew services start skhd
+	else
+		brew services restart skhd
+	fi
 
 	# install python
 	if ! hash python3 2>/dev/null; then
