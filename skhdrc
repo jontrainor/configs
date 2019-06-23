@@ -1,16 +1,33 @@
 # prevent skhd from monitoring events for specific applications.
 
-.blacklist [
-   "kitty"
-   "terminal"
-   "iterm2"
-]
-
 ctrl - space : skhd -k escape
 
+# arrow key remapping
 ctrl - h : skhd -k left
-ctrl + alt - h : skhd -k "alt - left"
-ctrl - j : skhd -k down
-ctrl - k : skhd -k up
+ctrl - j [
+   * : skhd -k down
+   "iterm2" ~
+]
+ctrl - k [
+   * : skhd -k up
+   "iterm2" ~
+]
 ctrl - l : skhd -k right
+
+# alt arrow key remapping for terminal to avoid conflict with jump to error in coc.nvim
+ctrl + alt - j [
+   "iterm2": skhd -k down
+]
+ctrl + alt - k [
+   "iterm2": skhd -k up
+]
+
+# left/right by word remapping
+ctrl + alt - h : skhd -k "alt - left"
 ctrl + alt - l : skhd -k "alt - right"
+
+ # arrow key with select remapping
+ctrl + shift - h : skhd -k "shift - left"
+ctrl + shift - j : skhd -k "shift - down"
+ctrl + shift - k : skhd -k "shift - up"
+ctrl + shift - l : skhd -k "shift - right"
