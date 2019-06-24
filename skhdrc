@@ -1,7 +1,9 @@
 # prevent skhd from monitoring events for specific applications.
 
+# --- escape
 ctrl - space : skhd -k escape
 
+# --- arrow keys
 # arrow key remapping
 ctrl - h : skhd -k left
 ctrl - j [
@@ -31,3 +33,7 @@ ctrl + shift - h : skhd -k "shift - left"
 ctrl + shift - j : skhd -k "shift - down"
 ctrl + shift - k : skhd -k "shift - up"
 ctrl + shift - l : skhd -k "shift - right"
+
+# --- Spotify
+# play/pause
+ctrl - backspace : osascript -e 'tell application "Spotify" to playpause'

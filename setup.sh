@@ -46,7 +46,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 		brew install koekeishiya/formulae/skhd
 		brew services start skhd
 	else
-		brew services restart skhd
+		skhd -r
 	fi
 
 	# install python
