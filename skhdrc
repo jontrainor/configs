@@ -27,6 +27,8 @@ ctrl + alt - k [
 # left/right by word remapping
 ctrl + alt - h : skhd -k "alt - left"
 ctrl + alt - l : skhd -k "alt - right"
+ctrl + alt + shift - h : skhd -k "shift + alt - left"
+ctrl + alt + shift - l : skhd -k "shift + alt - right"
 
  # arrow key with select remapping
 ctrl + shift - h : skhd -k "shift - left"
