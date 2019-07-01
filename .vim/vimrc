@@ -35,7 +35,6 @@ Plug 'ludovicchabant/vim-gutentags'
 
 " --- syntax and text completion
 Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
-Plug 'w0rp/ale'
 
 "  javascript
 Plug 'pangloss/vim-javascript'
@@ -417,17 +416,6 @@ nnoremap <silent> <leader>e :NnnPicker '%:p:h'<CR>
 
 " --- vim-npr settings
 let g:vim_npr_max_levels = 15
-
-" --- ale settings
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
-
-let g:airline#extensions#ale#enabled = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:ale_sign_error = '>>'
-let g:ale_sign_warning = '>'
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " --- gutentags settings
 let g:gutentags_cache_dir = '~/.gutentags'
