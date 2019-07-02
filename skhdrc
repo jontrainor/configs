@@ -25,3 +25,5 @@ ctrl + shift - l : skhd -k "shift - right"
 # --- Spotify
 # play/pause
 ctrl - backspace : osascript -e 'tell application "Spotify" to playpause'
+ctrl - n : osascript -e 'tell application "Spotify" to previous track'
+ctrl - m : osascript -e 'tell application "Spotify" to next track'
