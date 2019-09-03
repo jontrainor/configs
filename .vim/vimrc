@@ -266,6 +266,9 @@ au FileType python setlocal expandtab shiftwidth=4 tabstop=4
 au BufNewFile,BufRead *.hx set filetype=haxe
 au FileType haxe setlocal expandtab shiftwidth=4 tabstop=4
 
+" pico-8 specific options
+autocmd BufNewFile,BufRead *.p8 set syntax=lua
+
 " --- turn matchit.vim on
 runtime macros/matchit.vim
 
