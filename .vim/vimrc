@@ -34,7 +34,7 @@ Plug 'mcchrish/nnn.vim'
 Plug 'ludovicchabant/vim-gutentags'
 
 " --- syntax and text completion
-Plug 'neoclide/coc.nvim', {'tag': '*', 'do': './install.sh'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "  javascript
 Plug 'pangloss/vim-javascript'
@@ -44,6 +44,8 @@ Plug 'mxw/vim-jsx'
 Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'moll/vim-node'
 Plug 'tomarrell/vim-npr'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 " haxe
 Plug 'MarcWeber/vim-haxe-syntax'
 " tab complete in search bar
@@ -176,7 +178,7 @@ set nowb
 set noswapfile
 
 " --- decrease message size
-set shortmess=atI
+set shortmess=atIc
 
 " --- grep within vim uses ack
 set grepprg=ack
@@ -344,11 +346,11 @@ vnoremap <Leader>s y:lcd <C-r>=g:trainororiginalpwd<CR><CR>:Ack! -i<Space><C-r>"
 let g:ack_autofold_results=1
 
 if executable('ag')
-	let g:ackprg = 'ag --vimgrep'
+	let g:ackprg = 'ag --vimgrep --ignore=*.map'
 endif
 
 " --- vim-fugitive
-nnoremap <Leader>b :Gblame w<CR>
+nnoremap <Leader>b :Gblame<CR>
 
 " --- vim-gitgutter settings
 let g:gitgutter_realtime = 0
@@ -381,8 +383,8 @@ let g:flow#autoclose = 1
 let g:clever_f_chars_match_any_signs = ';' 
 
 " --- git-gutter settings
-nmap ]h <Plug>GitGutterNextHunk
-nmap [h <Plug>GitGutterPrevHunk
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 " --- vim-virtualenv settings
 cnoreabbrev activate VirtualEnvActivate
@@ -427,6 +429,10 @@ let g:gutentags_cache_dir = '~/.gutentags'
 " if hidden is not set, TextEdit might fail.
 set hidden
 
+set updatetime=300
+
+let g:coc_node_args = ['--max-old-space-size=8192']
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
@@ -447,12 +453,23 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Use `[c` and `]c` to navigate diagnostics
 nmap <silent> [c <Plug>(coc-diagnostic-prev)
 nmap <silent> ]c <Plug>(coc-diagnostic-next)
+nmap <silent> [e <Plug>(coc-diagnostic-prev-error)
+nmap <silent> ]e <Plug>(coc-diagnostic-next-error)
 
-" Remap keys for gotos
+" key mappings
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> ga <Plug>(coc-codeaction)
+vmap <silent> ga <Plug>(coc-codeaction-select)
+nmap <silent> gA <Plug>(coc-codelens-action)
+nmap <silent> gff <Plug>(coc-fix-current)
+nmap <silent> gf <Plug>(coc-format)
+vmap <silent> gf <Plug>(coc-format-selected)
+nmap <silent> gx <Plug>(coc-float-hide)
+nmap <silent> gn <Plug>(coc-rename)
+nmap <silent> go <Plug>(coc-open-link)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
