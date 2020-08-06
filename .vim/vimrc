@@ -22,6 +22,10 @@ Plug 'tpope/vim-projectionist'
 " --- extensions to default functionality
 " extra text objects
 Plug 'wellle/targets.vim'
+" indent objects
+Plug 'michaeljsmith/vim-indent-object'
+" expand word motions
+Plug 'chaoren/vim-wordmotion'
 " '"surroundings"'
 Plug 'tpope/vim-surround'
 " extends f/F and t/T
@@ -46,6 +50,7 @@ Plug 'moll/vim-node'
 Plug 'tomarrell/vim-npr'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
+Plug 'prettier/vim-prettier'
 " haxe
 Plug 'MarcWeber/vim-haxe-syntax'
 " tab complete in search bar
@@ -473,3 +478,6 @@ nmap <silent> go <Plug>(coc-open-link)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" --- vim-prettier settings
+vmap <Leader>p :PrettierPartial<CR>
