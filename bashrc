@@ -7,6 +7,9 @@ PATH=$PATH:/usr/local/lib/node_modules
 # brew settings
 export PATH="/usr/local/sbin:$PATH"
 
+# java env settings
+export PATH="$HOME/.jenv/bin:$PATH"
+
 # custom prompt
 # username@computername:path (git branch)
 # $ 
@@ -192,4 +195,8 @@ fi
 
 if hash nvm 2>/dev/null && [ -f .nvmrc ]; then
     nvm use || nvm install
+fi
+
+if hash jenv 2>/dev/null; then
+    eval "$(jenv init -)"
 fi
